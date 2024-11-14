@@ -1,9 +1,9 @@
 /* Test of gl_thread_create () macro.
-   Copyright (C) 2011-2018 Free Software Foundation, Inc.
+   Copyright (C) 2011-2024 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
+   the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
@@ -33,7 +33,7 @@ static int dummy;
 static volatile int work_done;
 
 static void *
-worker_thread_func (void *arg)
+worker_thread_func (_GL_UNUSED void *arg)
 {
   work_done = 1;
   return &dummy;
@@ -67,7 +67,7 @@ main ()
     }
   else
     {
-#if USE_POSIX_THREADS || USE_SOLARIS_THREADS || USE_PTH_THREADS || USE_WINDOWS_THREADS
+#if USE_ISOC_THREADS || USE_POSIX_THREADS || USE_ISOC_AND_POSIX_THREADS || USE_WINDOWS_THREADS
       fputs ("glthread_create failed\n", stderr);
       return 1;
 #else

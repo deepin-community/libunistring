@@ -1,9 +1,9 @@
 /* Test of <stdint.h> substitute.
-   Copyright (C) 2006-2018 Free Software Foundation, Inc.
+   Copyright (C) 2006-2024 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
+   the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
@@ -26,7 +26,7 @@
 #include "verify.h"
 #include "intprops.h"
 
-#if __GNUC__ >= 2 && DO_PEDANTIC
+#if ((__GNUC__ >= 2) || (__clang_major__ >= 4)) && DO_PEDANTIC
 # define verify_same_types(expr1,expr2)  \
     extern void _verify_func(__LINE__) (__typeof__ (expr1) *); \
     extern void _verify_func(__LINE__) (__typeof__ (expr2) *);
@@ -216,20 +216,24 @@ err or;
 /* 7.18.1.4. Integer types capable of holding object pointers */
 /* 7.18.2.4. Limits of integer types capable of holding object pointers */
 
+#ifdef INTPTR_MAX
 intptr_t g[3] = { 17, INTPTR_MIN, INTPTR_MAX };
+verify (sizeof (void *) <= sizeof (intptr_t));
+# ifndef __CHERI_PURE_CAPABILITY__
 verify (TYPE_MINIMUM (intptr_t) == INTPTR_MIN);
 verify (TYPE_MAXIMUM (intptr_t) == INTPTR_MAX);
+# endif
 verify_same_types (INTPTR_MIN, (intptr_t) 0 + 0);
 verify_same_types (INTPTR_MAX, (intptr_t) 0 + 0);
+#endif
 
+#ifdef UINTPTR_MAX
 uintptr_t h[2] = { 17, UINTPTR_MAX };
+verify (sizeof (void *) <= sizeof (uintptr_t));
+# ifndef __CHERI_PURE_CAPABILITY__
 verify (TYPE_MAXIMUM (uintptr_t) == UINTPTR_MAX);
+# endif
 verify_same_types (UINTPTR_MAX, (uintptr_t) 0 + 0);
-
-#if INTPTR_MIN && INTPTR_MAX && UINTPTR_MAX
-/* ok */
-#else
-err or;
 #endif
 
 /* 7.18.1.5. Greatest-width integer types */
@@ -245,9 +249,10 @@ uintmax_t j[2] = { UINTMAX_C (17), UINTMAX_MAX };
 verify (TYPE_MAXIMUM (uintmax_t) == UINTMAX_MAX);
 verify_same_types (UINTMAX_MAX, (uintmax_t) 0 + 0);
 
-/* As of 2007, Sun C and HP-UX 10.20 cc don't support 'long long' constants in
+/* Older Sun C and HP-UX 10.20 cc don't support 'long long' constants in
    the preprocessor.  */
-#if !(defined __SUNPRO_C || (defined __hpux && !defined __GNUC__))
+#if !((defined __SUNPRO_C && __SUNPRO_C < 0x5150) \
+      || (defined __hpux && !defined __GNUC__))
 #if INTMAX_MIN && INTMAX_MAX && UINTMAX_MAX
 /* ok */
 #else
@@ -361,7 +366,7 @@ verify_same_types (UINTMAX_C (17), (uintmax_t)0 + 0);
   */
 #define verify_width(width, min, max) \
   _GL_VERIFY ((max) >> ((width) - 1 - ((min) < 0)) == 1, \
-              "verify_width check")
+              "verify_width check", -)
 
 /* Macros specified by ISO/IEC TS 18661-1:2014.  */
 
@@ -405,8 +410,14 @@ verify_width (INT_FAST32_WIDTH, INT_FAST32_MIN, INT_FAST32_MAX);
 verify_width (UINT_FAST32_WIDTH, 0, UINT_FAST32_MAX);
 verify_width (INT_FAST64_WIDTH, INT_FAST64_MIN, INT_FAST64_MAX);
 verify_width (UINT_FAST64_WIDTH, 0, UINT_FAST64_MAX);
+#ifndef __CHERI_PURE_CAPABILITY__
+# ifdef INTPTR_WIDTH
 verify_width (INTPTR_WIDTH, INTPTR_MIN, INTPTR_MAX);
+# endif
+# ifdef UINTPTR_WIDTH
 verify_width (UINTPTR_WIDTH, 0, UINTPTR_MAX);
+# endif
+#endif
 verify_width (INTMAX_WIDTH, INTMAX_MIN, INTMAX_MAX);
 verify_width (UINTMAX_WIDTH, 0, UINTMAX_MAX);
 verify_width (PTRDIFF_WIDTH, PTRDIFF_MIN, PTRDIFF_MAX);

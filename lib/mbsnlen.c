@@ -1,27 +1,18 @@
 /* Counting the multibyte characters in a string.
-   Copyright (C) 2007-2018 Free Software Foundation, Inc.
+   Copyright (C) 2007-2024 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2007.
 
-   This program is free software: you can redistribute it and/or
-   modify it under the terms of either:
+   This file is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as
+   published by the Free Software Foundation; either version 2.1 of the
+   License, or (at your option) any later version.
 
-     * the GNU Lesser General Public License as published by the Free
-       Software Foundation; either version 3 of the License, or (at your
-       option) any later version.
-
-   or
-
-     * the GNU General Public License as published by the Free
-       Software Foundation; either version 2 of the License, or (at your
-       option) any later version.
-
-   or both in parallel, as here.
-   This program is distributed in the hope that it will be useful,
+   This file is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
+   GNU Lesser General Public License for more details.
 
-   You should have received a copy of the GNU General Public License
+   You should have received a copy of the GNU Lesser General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 #include <config.h>
@@ -31,7 +22,11 @@
 
 #include <stdlib.h>
 
-#include "mbiter.h"
+#if GNULIB_MCEL_PREFER
+# include "mcel.h"
+#else
+# include "mbiterf.h"
+#endif
 
 /* Return the number of multibyte characters in the character string starting
    at STRING and ending at STRING + LEN.  */
@@ -40,12 +35,23 @@ mbsnlen (const char *string, size_t len)
 {
   if (MB_CUR_MAX > 1)
     {
-      size_t count;
-      mbi_iterator_t iter;
+      size_t count = 0;
 
-      count = 0;
-      for (mbi_init (iter, string, len); mbi_avail (iter); mbi_advance (iter))
+      const char *string_end = string + len;
+
+#if GNULIB_MCEL_PREFER
+      for (; *string; string += mcel_scan (string, string_end).len)
         count++;
+#else
+      mbif_state_t state;
+      const char *iter;
+      for (mbif_init (state), iter = string; mbif_avail (state, iter, string_end); )
+        {
+          mbchar_t cur = mbif_next (state, iter, string_end);
+          count++;
+          iter += mb_len (cur);
+        }
+#endif
 
       return count;
     }

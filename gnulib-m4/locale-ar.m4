@@ -1,5 +1,5 @@
-# locale-ar.m4 serial 8
-dnl Copyright (C) 2003, 2005-2018 Free Software Foundation, Inc.
+# locale-ar.m4 serial 11
+dnl Copyright (C) 2003, 2005-2024 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
 dnl with or without modifications, as long as this notice is preserved.
@@ -7,13 +7,12 @@ dnl with or without modifications, as long as this notice is preserved.
 dnl From Ben Pfaff, based on locale-fr.m4 by Bruno Haible.
 
 dnl Determine the name of an Arabic locale with traditional encoding.
-AC_DEFUN([gt_LOCALE_AR],
+AC_DEFUN_ONCE([gt_LOCALE_AR],
 [
   AC_REQUIRE([AC_CANONICAL_HOST])
   AC_REQUIRE([AM_LANGINFO_CODESET])
   AC_CACHE_CHECK([for a traditional Arabic locale], [gt_cv_locale_ar], [
-    AC_LANG_CONFTEST([AC_LANG_SOURCE([
-changequote(,)dnl
+    AC_LANG_CONFTEST([AC_LANG_SOURCE([[
 #include <locale.h>
 #include <time.h>
 #if HAVE_LANGINFO_CODESET
@@ -61,8 +60,7 @@ int main () {
   return 0;
 #endif
 }
-changequote([,])dnl
-      ])])
+      ]])])
     if AC_TRY_EVAL([ac_link]) && test -s conftest$ac_exeext; then
       case "$host_os" in
         # Handle native Windows specially, because there setlocale() interprets
@@ -71,7 +69,7 @@ changequote([,])dnl
         # "ge"(!) or "deu"(!) as "German" or "German_Germany.1252",
         # "ja" as "Japanese" or "Japanese_Japan.932",
         # and similar.
-        mingw*)
+        mingw* | windows*)
           # Note that on native Windows, the Arabic locale is
           # "Arabic_Saudi Arabia.1256", and CP1256 is very different from
           # ISO-8859-6, so we cannot use it here.
@@ -102,5 +100,11 @@ changequote([,])dnl
     rm -fr conftest*
   ])
   LOCALE_AR=$gt_cv_locale_ar
+  case $LOCALE_AR in #(
+    '' | *[[[:space:]\"\$\'*@<:@]]*)
+      dnl This locale name might cause trouble with sh or make.
+      AC_MSG_WARN([invalid locale "$LOCALE_AR"; assuming "none"])
+      LOCALE_AR=none;;
+  esac
   AC_SUBST([LOCALE_AR])
 ])

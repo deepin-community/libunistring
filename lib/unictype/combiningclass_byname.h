@@ -1,5 +1,5 @@
-/* ANSI-C code produced by gperf version 3.1 */
-/* Command-line: gperf -m 10 ./unictype/combiningclass_byname.gperf  */
+/* ANSI-C code produced by gperf version 3.2 */
+/* Command-line: gperf -m 10 ../../lib/unictype/combiningclass_byname.gperf  */
 /* Computed positions: -k'1,6,$' */
 
 #if !((' ' == 32) && ('!' == 33) && ('"' == 34) && ('#' == 35) \
@@ -29,7 +29,7 @@
 #error "gperf generated tables don't work with this execution character set. Please report a bug to <bug-gperf@gnu.org>."
 #endif
 
-#line 2 "./unictype/combiningclass_byname.gperf"
+#line 25 "../../lib/unictype/combiningclass_byname.gperf"
 struct named_combining_class { int name; int combining_class; };
 
 #define TOTAL_KEYWORDS 53
@@ -41,7 +41,7 @@ struct named_combining_class { int name; int combining_class; };
 
 #ifndef GPERF_DOWNCASE
 #define GPERF_DOWNCASE 1
-static unsigned char gperf_downcase[256] =
+static const unsigned char gperf_downcase[256] =
   {
       0,   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  14,
      15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,  26,  27,  28,  29,
@@ -125,6 +125,11 @@ combining_class_hash (register const char *str, register size_t len)
     {
       default:
         hval += asso_values[(unsigned char)str[5]];
+#if defined __cplusplus && (__cplusplus >= 201703L || (__cplusplus >= 201103L && defined __clang_major__ && defined __clang_minor__ && __clang_major__ + (__clang_minor__ >= 9) > 3))
+      [[fallthrough]];
+#elif defined __GNUC__ && __GNUC__ >= 7
+      __attribute__ ((__fallthrough__));
+#endif
       /*FALLTHROUGH*/
       case 5:
       case 4:
@@ -254,123 +259,123 @@ static const struct combining_class_stringpool_t combining_class_stringpool_cont
 static const struct named_combining_class combining_class_names[] =
   {
     {-1}, {-1}, {-1},
-#line 24 "./unictype/combiningclass_byname.gperf"
+#line 47 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str3, UC_CCC_B},
     {-1},
-#line 15 "./unictype/combiningclass_byname.gperf"
+#line 38 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str5, UC_CCC_OV},
     {-1}, {-1},
-#line 20 "./unictype/combiningclass_byname.gperf"
+#line 43 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str8, UC_CCC_ATB},
-#line 29 "./unictype/combiningclass_byname.gperf"
+#line 52 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str9, UC_CCC_A},
-#line 58 "./unictype/combiningclass_byname.gperf"
+#line 81 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str10, UC_CCC_A},
-#line 21 "./unictype/combiningclass_byname.gperf"
+#line 44 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str11, UC_CCC_ATA},
-#line 25 "./unictype/combiningclass_byname.gperf"
+#line 48 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str12, UC_CCC_BR},
-#line 18 "./unictype/combiningclass_byname.gperf"
+#line 41 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str13, UC_CCC_VR},
-#line 33 "./unictype/combiningclass_byname.gperf"
+#line 56 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str14, UC_CCC_IS},
-#line 30 "./unictype/combiningclass_byname.gperf"
+#line 53 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str15, UC_CCC_AR},
-#line 40 "./unictype/combiningclass_byname.gperf"
+#line 63 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str16, UC_CCC_VR},
-#line 22 "./unictype/combiningclass_byname.gperf"
+#line 45 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str17, UC_CCC_ATAR},
-#line 23 "./unictype/combiningclass_byname.gperf"
+#line 46 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str18, UC_CCC_BL},
-#line 27 "./unictype/combiningclass_byname.gperf"
+#line 50 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str19, UC_CCC_R},
-#line 37 "./unictype/combiningclass_byname.gperf"
+#line 60 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str20, UC_CCC_NK},
-#line 28 "./unictype/combiningclass_byname.gperf"
+#line 51 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str21, UC_CCC_AL},
-#line 14 "./unictype/combiningclass_byname.gperf"
+#line 37 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str22, UC_CCC_NR},
-#line 19 "./unictype/combiningclass_byname.gperf"
+#line 42 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str23, UC_CCC_ATBL},
-#line 55 "./unictype/combiningclass_byname.gperf"
+#line 78 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str24, UC_CCC_R},
-#line 36 "./unictype/combiningclass_byname.gperf"
+#line 59 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str25, UC_CCC_OV},
-#line 46 "./unictype/combiningclass_byname.gperf"
+#line 69 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str26, UC_CCC_ATA},
-#line 45 "./unictype/combiningclass_byname.gperf"
+#line 68 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str27, UC_CCC_ATA},
-#line 51 "./unictype/combiningclass_byname.gperf"
+#line 74 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str28, UC_CCC_B},
-#line 54 "./unictype/combiningclass_byname.gperf"
+#line 77 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str29, UC_CCC_L},
-#line 53 "./unictype/combiningclass_byname.gperf"
+#line 76 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str30, UC_CCC_BR},
-#line 26 "./unictype/combiningclass_byname.gperf"
+#line 49 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str31, UC_CCC_L},
-#line 66 "./unictype/combiningclass_byname.gperf"
+#line 89 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str32, UC_CCC_IS},
-#line 60 "./unictype/combiningclass_byname.gperf"
+#line 83 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str33, UC_CCC_AR},
-#line 31 "./unictype/combiningclass_byname.gperf"
+#line 54 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str34, UC_CCC_DB},
-#line 50 "./unictype/combiningclass_byname.gperf"
+#line 73 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str35, UC_CCC_BL},
-#line 65 "./unictype/combiningclass_byname.gperf"
+#line 88 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str36, UC_CCC_IS},
-#line 32 "./unictype/combiningclass_byname.gperf"
+#line 55 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str37, UC_CCC_DA},
-#line 57 "./unictype/combiningclass_byname.gperf"
+#line 80 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str38, UC_CCC_AL},
-#line 42 "./unictype/combiningclass_byname.gperf"
+#line 65 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str39, UC_CCC_ATBL},
-#line 48 "./unictype/combiningclass_byname.gperf"
+#line 71 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str40, UC_CCC_ATAR},
-#line 41 "./unictype/combiningclass_byname.gperf"
+#line 64 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str41, UC_CCC_ATBL},
-#line 47 "./unictype/combiningclass_byname.gperf"
+#line 70 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str42, UC_CCC_ATAR},
     {-1},
-#line 64 "./unictype/combiningclass_byname.gperf"
+#line 87 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str44, UC_CCC_DA},
-#line 63 "./unictype/combiningclass_byname.gperf"
+#line 86 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str45, UC_CCC_DA},
     {-1},
-#line 44 "./unictype/combiningclass_byname.gperf"
+#line 67 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str47, UC_CCC_ATB},
-#line 43 "./unictype/combiningclass_byname.gperf"
+#line 66 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str48, UC_CCC_ATB},
-#line 49 "./unictype/combiningclass_byname.gperf"
+#line 72 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str49, UC_CCC_BL},
-#line 52 "./unictype/combiningclass_byname.gperf"
+#line 75 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str50, UC_CCC_BR},
-#line 17 "./unictype/combiningclass_byname.gperf"
+#line 40 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str51, UC_CCC_KV},
-#line 56 "./unictype/combiningclass_byname.gperf"
+#line 79 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str52, UC_CCC_AL},
-#line 59 "./unictype/combiningclass_byname.gperf"
+#line 82 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str53, UC_CCC_AR},
     {-1},
-#line 35 "./unictype/combiningclass_byname.gperf"
+#line 58 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str55, UC_CCC_NR},
-#line 34 "./unictype/combiningclass_byname.gperf"
+#line 57 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str56, UC_CCC_NR},
     {-1}, {-1}, {-1},
-#line 16 "./unictype/combiningclass_byname.gperf"
+#line 39 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str60, UC_CCC_NK},
-#line 39 "./unictype/combiningclass_byname.gperf"
+#line 62 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str61, UC_CCC_KV},
     {-1},
-#line 38 "./unictype/combiningclass_byname.gperf"
+#line 61 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str63, UC_CCC_KV},
     {-1},
-#line 62 "./unictype/combiningclass_byname.gperf"
+#line 85 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str65, UC_CCC_DB},
-#line 61 "./unictype/combiningclass_byname.gperf"
+#line 84 "../../lib/unictype/combiningclass_byname.gperf"
     {(int)(size_t)&((struct combining_class_stringpool_t *)0)->combining_class_stringpool_str66, UC_CCC_DB}
   };
 
-const struct named_combining_class *
+static const struct named_combining_class *
 uc_combining_class_lookup (register const char *str, register size_t len)
 {
   if (len <= MAX_WORD_LENGTH && len >= MIN_WORD_LENGTH)

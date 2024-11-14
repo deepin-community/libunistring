@@ -1,20 +1,11 @@
 /* Determine name of the currently selected locale.
-   Copyright (C) 2007, 2009-2018 Free Software Foundation, Inc.
+   Copyright (C) 2007, 2009-2024 Free Software Foundation, Inc.
 
-   This program is free software: you can redistribute it and/or
-   modify it under the terms of either:
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation; either version 2.1 of the License, or
+   (at your option) any later version.
 
-     * the GNU Lesser General Public License as published by the Free
-       Software Foundation; either version 3 of the License, or (at your
-       option) any later version.
-
-   or
-
-     * the GNU General Public License as published by the Free
-       Software Foundation; either version 2 of the License, or (at your
-       option) any later version.
-
-   or both in parallel, as here.
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -25,6 +16,11 @@
 
 #ifndef _GL_LOCALENAME_H
 #define _GL_LOCALENAME_H
+
+/* This file uses _GL_ATTRIBUTE_CONST, HAVE_CFPREFERENCESCOPYAPPVALUE.  */
+#if !_GL_CONFIG_H_INCLUDED
+ #error "Please include config.h first."
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -95,11 +91,23 @@ extern const char * gl_locale_name_environ (int category, const char *categoryna
 
    The result must not be freed; it is statically allocated.  */
 extern const char * gl_locale_name_default (void)
-#if !(HAVE_CFLOCALECOPYCURRENT || HAVE_CFPREFERENCESCOPYAPPVALUE \
-      || defined _WIN32 || defined __CYGWIN__)
+#if !(HAVE_CFPREFERENCESCOPYAPPVALUE || defined _WIN32 || defined __CYGWIN__)
   _GL_ATTRIBUTE_CONST
 #endif
   ;
+
+
+/* These functions with the '_unsafe' suffix are like the functions without
+   this suffix, above, except that the result is not statically allocated, but
+   instead only valid in the current thread, until the next uselocale(),
+   setlocale(), newlocale(), or freelocale() call.  */
+extern const char * gl_locale_name_unsafe (int category,
+                                           const char *categoryname);
+extern const char * gl_locale_name_thread_unsafe (int category,
+                                                  const char *categoryname);
+extern const char * gl_locale_name_posix_unsafe (int category,
+                                                 const char *categoryname);
+
 
 #ifdef __cplusplus
 }

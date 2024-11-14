@@ -1,19 +1,28 @@
 /* List of exported symbols of libunistring on Cygwin.
-   Copyright (C) 2006, 2009 Free Software Foundation, Inc.
+   Copyright (C) 2006-2024 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2006.
 
-   This program is free software: you can redistribute it and/or modify
-   it under the terms of the GNU Lesser General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
-   (at your option) any later version.
+   This program is free software: you can redistribute it and/or
+   modify it under the terms of either:
 
+     * the GNU Lesser General Public License as published by the Free
+       Software Foundation; either version 3 of the License, or (at your
+       option) any later version.
+
+   or
+
+     * the GNU General Public License as published by the Free
+       Software Foundation; either version 2 of the License, or (at your
+       option) any later version.
+
+   or both in parallel, as here.
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU Lesser General Public License for more details.
 
    You should have received a copy of the GNU Lesser General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 #include "woe32dll/export.h"
 
@@ -25,6 +34,7 @@ VARIABLE(UC_CATEGORY_Cn)
 VARIABLE(UC_CATEGORY_Co)
 VARIABLE(UC_CATEGORY_Cs)
 VARIABLE(UC_CATEGORY_L)
+VARIABLE(UC_CATEGORY_LC)
 VARIABLE(UC_CATEGORY_Ll)
 VARIABLE(UC_CATEGORY_Lm)
 VARIABLE(UC_CATEGORY_Lo)
@@ -74,6 +84,13 @@ VARIABLE(UC_PROPERTY_BIDI_OTHER_NEUTRAL)
 VARIABLE(UC_PROPERTY_BIDI_PDF)
 VARIABLE(UC_PROPERTY_BIDI_SEGMENT_SEPARATOR)
 VARIABLE(UC_PROPERTY_BIDI_WHITESPACE)
+VARIABLE(UC_PROPERTY_CASED)
+VARIABLE(UC_PROPERTY_CASE_IGNORABLE)
+VARIABLE(UC_PROPERTY_CHANGES_WHEN_CASEFOLDED)
+VARIABLE(UC_PROPERTY_CHANGES_WHEN_CASEMAPPED)
+VARIABLE(UC_PROPERTY_CHANGES_WHEN_LOWERCASED)
+VARIABLE(UC_PROPERTY_CHANGES_WHEN_TITLECASED)
+VARIABLE(UC_PROPERTY_CHANGES_WHEN_UPPERCASED)
 VARIABLE(UC_PROPERTY_COMBINING)
 VARIABLE(UC_PROPERTY_COMPOSITE)
 VARIABLE(UC_PROPERTY_CURRENCY_SYMBOL)
@@ -82,6 +99,12 @@ VARIABLE(UC_PROPERTY_DECIMAL_DIGIT)
 VARIABLE(UC_PROPERTY_DEFAULT_IGNORABLE_CODE_POINT)
 VARIABLE(UC_PROPERTY_DEPRECATED)
 VARIABLE(UC_PROPERTY_DIACRITIC)
+VARIABLE(UC_PROPERTY_EMOJI)
+VARIABLE(UC_PROPERTY_EMOJI_COMPONENT)
+VARIABLE(UC_PROPERTY_EMOJI_MODIFIER)
+VARIABLE(UC_PROPERTY_EMOJI_MODIFIER_BASE)
+VARIABLE(UC_PROPERTY_EMOJI_PRESENTATION)
+VARIABLE(UC_PROPERTY_EXTENDED_PICTOGRAPHIC)
 VARIABLE(UC_PROPERTY_EXTENDER)
 VARIABLE(UC_PROPERTY_FORMAT_CONTROL)
 VARIABLE(UC_PROPERTY_GRAPHEME_BASE)
@@ -121,6 +144,7 @@ VARIABLE(UC_PROPERTY_PRIVATE_USE)
 VARIABLE(UC_PROPERTY_PUNCTUATION)
 VARIABLE(UC_PROPERTY_QUOTATION_MARK)
 VARIABLE(UC_PROPERTY_RADICAL)
+VARIABLE(UC_PROPERTY_REGIONAL_INDICATOR)
 VARIABLE(UC_PROPERTY_SENTENCE_TERMINAL)
 VARIABLE(UC_PROPERTY_SOFT_DOTTED)
 VARIABLE(UC_PROPERTY_SPACE)
@@ -142,5 +166,7 @@ VARIABLE(uninorm_nfkd)
 /* Variables declared in unicase.h */
 VARIABLE(unicase_empty_prefix_context)
 VARIABLE(unicase_empty_suffix_context)
+/* Variables declared in unimetadata.h */
+VARIABLE(_libunistring_unicode_version)
 /* Variables declared in unistring/version.h */
 VARIABLE(_libunistring_version)

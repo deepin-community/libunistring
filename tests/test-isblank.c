@@ -1,9 +1,9 @@
 /* Test of isblank() function.
-   Copyright (C) 2009-2018 Free Software Foundation, Inc.
+   Copyright (C) 2009-2024 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
+   the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
@@ -29,13 +29,13 @@ SIGNATURE_CHECK (isblank, int, (int));
 #include "macros.h"
 
 int
-main (int argc, char *argv[])
+main ()
 {
   unsigned int c;
 
   /* Verify the property in the "C" locale.
      POSIX specifies in
-       <http://www.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap07.html>
+       <https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap07.html>
      that
        - in all locales, the blank characters include the <space> and <tab>
          characters,
