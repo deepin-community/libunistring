@@ -1,5 +1,5 @@
-# fdopen.m4 serial 4
-dnl Copyright (C) 2011-2018 Free Software Foundation, Inc.
+# fdopen.m4 serial 6
+dnl Copyright (C) 2011-2024 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
 dnl with or without modifications, as long as this notice is preserved.
@@ -22,6 +22,7 @@ AC_DEFUN([gl_FUNC_FDOPEN],
           [AC_LANG_SOURCE([[
 #include <stdio.h>
 #include <errno.h>
+]GL_MDA_DEFINES[
 int
 main (void)
 {
@@ -35,8 +36,8 @@ main (void)
           [gl_cv_func_fdopen_works=yes],
           [gl_cv_func_fdopen_works=no],
           [case "$host_os" in
-             mingw*) gl_cv_func_fdopen_works="guessing no" ;;
-             *)      gl_cv_func_fdopen_works="guessing yes" ;;
+             mingw* | windows*) gl_cv_func_fdopen_works="guessing no" ;;
+             *)                 gl_cv_func_fdopen_works="guessing yes" ;;
            esac
           ])
       ])

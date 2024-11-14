@@ -1,9 +1,9 @@
 /* Test of pthread_sigmask in a multi-threaded program.
-   Copyright (C) 2011-2018 Free Software Foundation, Inc.
+   Copyright (C) 2011-2024 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
+   the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
@@ -21,20 +21,19 @@
 #include <signal.h>
 
 #include <errno.h>
+#include <pthread.h>
 #include <stdio.h>
 #include <unistd.h>
 
-#include "glthread/thread.h"
-
 #include "macros.h"
 
-#if USE_POSIX_THREADS
+#if USE_POSIX_THREADS || USE_ISOC_AND_POSIX_THREADS
 
-static gl_thread_t main_thread;
-static gl_thread_t killer_thread;
+static pthread_t main_thread;
+static pthread_t killer_thread;
 
 static void *
-killer_thread_func (void *arg)
+killer_thread_func (_GL_UNUSED void *arg)
 {
   sleep (1);
   pthread_kill (main_thread, SIGINT);
@@ -44,13 +43,13 @@ killer_thread_func (void *arg)
 static volatile int sigint_occurred;
 
 static void
-sigint_handler (int sig)
+sigint_handler (_GL_UNUSED int sig)
 {
   sigint_occurred++;
 }
 
 int
-main (int argc, char *argv[])
+main ()
 {
   sigset_t set;
 
@@ -60,14 +59,17 @@ main (int argc, char *argv[])
   sigaddset (&set, SIGINT);
 
   /* Check error handling.  */
+  /* This call returns 0 on NetBSD 8.0.  */
+#if !defined __NetBSD__
   ASSERT (pthread_sigmask (1729, &set, NULL) == EINVAL);
+#endif
 
   /* Block SIGINT.  */
   ASSERT (pthread_sigmask (SIG_BLOCK, &set, NULL) == 0);
 
   /* Request a SIGINT signal from another thread.  */
-  main_thread = gl_thread_self ();
-  ASSERT (glthread_create (&killer_thread, killer_thread_func, NULL) == 0);
+  main_thread = pthread_self ();
+  ASSERT (pthread_create (&killer_thread, NULL, killer_thread_func, NULL) == 0);
 
   /* Wait.  */
   sleep (2);
@@ -83,6 +85,10 @@ main (int argc, char *argv[])
         pthread_sigmask(), at least one of those signals shall be delivered
         before the call to pthread_sigmask() returns."  */
   ASSERT (sigint_occurred == 1);
+
+  /* Clean up the thread.  This avoid a "ThreadSanitizer: thread leak" warning
+     from "gcc -fsanitize=thread".  */
+  ASSERT (pthread_join (killer_thread, NULL) == 0);
 
   return 0;
 }

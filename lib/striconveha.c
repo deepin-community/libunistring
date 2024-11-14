@@ -1,27 +1,18 @@
 /* Character set conversion with error handling and autodetection.
-   Copyright (C) 2002, 2005, 2007, 2009-2018 Free Software Foundation, Inc.
+   Copyright (C) 2002, 2005, 2007, 2009-2024 Free Software Foundation, Inc.
    Written by Bruno Haible.
 
-   This program is free software: you can redistribute it and/or
-   modify it under the terms of either:
+   This file is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as
+   published by the Free Software Foundation; either version 2.1 of the
+   License, or (at your option) any later version.
 
-     * the GNU Lesser General Public License as published by the Free
-       Software Foundation; either version 3 of the License, or (at your
-       option) any later version.
-
-   or
-
-     * the GNU General Public License as published by the Free
-       Software Foundation; either version 2 of the License, or (at your
-       option) any later version.
-
-   or both in parallel, as here.
-   This program is distributed in the hope that it will be useful,
+   This file is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
+   GNU Lesser General Public License for more details.
 
-   You should have received a copy of the GNU General Public License
+   You should have received a copy of the GNU Lesser General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 #include <config.h>
@@ -97,10 +88,6 @@ uniconv_register_autodetect (const char *name,
   size_t listlen;
   size_t memneed;
   size_t i;
-  char *memory;
-  struct autodetect_alias *new_alias;
-  char *new_name;
-  const char **new_try_in_order;
 
   /* The TRY_IN_ORDER list must not be empty.  */
   if (try_in_order[0] == NULL)
@@ -117,25 +104,24 @@ uniconv_register_autodetect (const char *name,
     memneed += sizeof (char *) + strlen (try_in_order[i]) + 1;
   listlen = i;
 
-  memory = (char *) malloc (memneed);
+  void *memory = malloc (memneed);
   if (memory != NULL)
     {
-      new_alias = (struct autodetect_alias *) memory;
-      memory += sizeof (struct autodetect_alias);
+      struct autodetect_alias *new_alias = memory;
+      memory = new_alias + 1;
 
-      new_try_in_order = (const char **) memory;
-      memory += (listlen + 1) * sizeof (char *);
+      char const **new_try_in_order = memory;
+      memory = new_try_in_order + listlen + 1;
 
-      new_name = (char *) memory;
-      memcpy (new_name, name, namelen);
-      memory += namelen;
+      char *new_name = memcpy (memory, name, namelen);
+      memory = new_name + namelen;
 
       for (i = 0; i < listlen; i++)
         {
           size_t len = strlen (try_in_order[i]) + 1;
-          memcpy (memory, try_in_order[i], len);
-          new_try_in_order[i] = (const char *) memory;
-          memory += len;
+          char *copy = memcpy (memory, try_in_order[i], len);
+          new_try_in_order[i] = copy;
+          memory = copy + len;
         }
       new_try_in_order[i] = NULL;
 
@@ -233,16 +219,22 @@ mem_iconveha (const char *src, size_t srclen,
       return 0;
     }
 
-  /* When using GNU libc >= 2.2 or GNU libiconv >= 1.5,
-     we want to use transliteration.  */
+  /* When using GNU libc >= 2.2 or GNU libiconv >= 1.5 or Citrus/FreeBSD/macOS
+     iconv, we want to use transliteration.  */
 #if (((__GLIBC__ == 2 && __GLIBC_MINOR__ >= 2) || __GLIBC__ > 2) \
      && !defined __UCLIBC__) \
-    || _LIBICONV_VERSION >= 0x0105
+    || _LIBICONV_VERSION >= 0x0105 \
+    || defined ICONV_SET_TRANSLITERATE
   if (transliterate)
     {
       int retval;
       size_t len = strlen (to_codeset);
       char *to_codeset_suffixed = (char *) malloca (len + 10 + 1);
+      if (to_codeset_suffixed == NULL)
+        {
+          errno = ENOMEM;
+          return -1;
+        }
       memcpy (to_codeset_suffixed, to_codeset, len);
       memcpy (to_codeset_suffixed + len, "//TRANSLIT", 10 + 1);
 
@@ -335,16 +327,22 @@ str_iconveha (const char *src,
       return result;
     }
 
-  /* When using GNU libc >= 2.2 or GNU libiconv >= 1.5,
-     we want to use transliteration.  */
+  /* When using GNU libc >= 2.2 or GNU libiconv >= 1.5 or Citrus/FreeBSD/macOS
+     iconv, we want to use transliteration.  */
 #if (((__GLIBC__ == 2 && __GLIBC_MINOR__ >= 2) || __GLIBC__ > 2) \
      && !defined __UCLIBC__) \
-    || _LIBICONV_VERSION >= 0x0105
+    || _LIBICONV_VERSION >= 0x0105 \
+    || defined ICONV_SET_TRANSLITERATE
   if (transliterate)
     {
       char *result;
       size_t len = strlen (to_codeset);
       char *to_codeset_suffixed = (char *) malloca (len + 10 + 1);
+      if (to_codeset_suffixed == NULL)
+        {
+          errno = ENOMEM;
+          return NULL;
+        }
       memcpy (to_codeset_suffixed, to_codeset, len);
       memcpy (to_codeset_suffixed + len, "//TRANSLIT", 10 + 1);
 

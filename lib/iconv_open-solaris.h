@@ -1,5 +1,5 @@
-/* ANSI-C code produced by gperf version 3.1 */
-/* Command-line: gperf -m 10 ./iconv_open-solaris.gperf  */
+/* ANSI-C code produced by gperf version 3.2 */
+/* Command-line: gperf -m 10 ../../lib/iconv_open-solaris.gperf  */
 /* Computed positions: -k'10' */
 
 #if !((' ' == 32) && ('!' == 33) && ('"' == 34) && ('#' == 35) \
@@ -29,7 +29,7 @@
 #error "gperf generated tables don't work with this execution character set. Please report a bug to <bug-gperf@gnu.org>."
 #endif
 
-#line 1 "./iconv_open-solaris.gperf"
+#line 17 "../../lib/iconv_open-solaris.gperf"
 struct mapping { int standard_name; const char vendor_name[10 + 1]; };
 
 #define TOTAL_KEYWORDS 13
@@ -84,6 +84,11 @@ mapping_hash (register const char *str, register size_t len)
     {
       default:
         hval += asso_values[(unsigned char)str[9]];
+#if defined __cplusplus && (__cplusplus >= 201703L || (__cplusplus >= 201103L && defined __clang_major__ && defined __clang_minor__ && __clang_major__ + (__clang_minor__ >= 9) > 3))
+      [[fallthrough]];
+#elif defined __GNUC__ && __GNUC__ >= 7
+      __attribute__ ((__fallthrough__));
+#endif
       /*FALLTHROUGH*/
       case 9:
       case 8:
@@ -132,32 +137,32 @@ static const struct stringpool_t stringpool_contents =
 static const struct mapping mappings[] =
   {
     {-1}, {-1}, {-1}, {-1}, {-1},
-#line 19 "./iconv_open-solaris.gperf"
+#line 35 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str5, "646"},
-#line 30 "./iconv_open-solaris.gperf"
+#line 46 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str6, "ansi-1251"},
-#line 18 "./iconv_open-solaris.gperf"
+#line 34 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str7},
     {-1}, {-1},
-#line 20 "./iconv_open-solaris.gperf"
+#line 36 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str10, "ISO8859-1"},
-#line 29 "./iconv_open-solaris.gperf"
+#line 45 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str11, "ISO8859-15"},
-#line 28 "./iconv_open-solaris.gperf"
+#line 44 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str12, "ISO8859-9"},
-#line 27 "./iconv_open-solaris.gperf"
+#line 43 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str13, "ISO8859-8"},
-#line 26 "./iconv_open-solaris.gperf"
+#line 42 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str14, "ISO8859-7"},
-#line 25 "./iconv_open-solaris.gperf"
+#line 41 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str15, "ISO8859-6"},
-#line 24 "./iconv_open-solaris.gperf"
+#line 40 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str16, "ISO8859-5"},
-#line 23 "./iconv_open-solaris.gperf"
+#line 39 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str17, "ISO8859-4"},
-#line 22 "./iconv_open-solaris.gperf"
+#line 38 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str18, "ISO8859-3"},
-#line 21 "./iconv_open-solaris.gperf"
+#line 37 "../../lib/iconv_open-solaris.gperf"
     {(int)(size_t)&((struct stringpool_t *)0)->stringpool_str19, "ISO8859-2"}
   };
 

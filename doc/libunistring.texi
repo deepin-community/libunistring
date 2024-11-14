@@ -98,7 +98,7 @@ This manual is for GNU libunistring.
 
 @ignore
 @c This was: @copying but it triggers a makeinfo 4.13 bug
-Copyright (C) 2001-2018 Free Software Foundation, Inc.
+Copyright (C) 2001-2024 Free Software Foundation, Inc.
 
 This manual is free documentation.  It is dually licensed under the
 GNU FDL and the GNU GPL.  This means that you can redistribute this
@@ -123,14 +123,13 @@ A copy of the license is included in @ref{GNU GPL}.
 @titlepage
 @title GNU libunistring, version @value{VERSION}
 @subtitle updated @value{UPDATED}
-@subtitle Edition @value{EDITION}, @value{UPDATED}
 @author Bruno Haible
 
 @ifnothtml
 @page
 @vskip 0pt plus 1filll
 @c @insertcopying
-Copyright (C) 2001-2018 Free Software Foundation, Inc.
+Copyright (C) 2001-2024 Free Software Foundation, Inc.
 
 This manual is free documentation.  It is dually licensed under the
 GNU FDL and the GNU GPL.  This means that you can redistribute this
@@ -179,6 +178,7 @@ A copy of the license is included in @ref{GNU GPL}.
 * Using the library::           How to link with the library and use it?
 * More functionality::          More advanced functionality
 * The wchar_t mess::            Why @code{wchar_t *} strings are useless
+* The char32_t problem::        Why @code{char32_t *} strings are problematic
 * Licenses::                    Licenses
 
 * Index::                       General Index
@@ -392,14 +392,14 @@ Japanese, even the processing of pure Japanese text was error prone.
 References:
 @itemize @bullet
 @item
-The Unicode standard:@texnl{} @url{http://www.unicode.org/}
+The Unicode standard:@texnl{} @url{https://www.unicode.org/}
 @item
-Definition of UTF-8:@texnl{} @url{http://www.rfc-editor.org/rfc/rfc3629.txt}
+Definition of UTF-8:@texnl{} @url{https://www.rfc-editor.org/rfc/rfc3629.txt}
 @item
-Definition of UTF-16:@texnl{} @url{http://www.rfc-editor.org/rfc/rfc2781.txt}
+Definition of UTF-16:@texnl{} @url{https://www.rfc-editor.org/rfc/rfc2781.txt}
 @item
 Markus Kuhn's UTF-8 and Unicode FAQ:@texnl{}
-@url{http://www.cl.cam.ac.uk/~mgk25/unicode.html}
+@url{https://www.cl.cam.ac.uk/~mgk25/unicode.html}
 @end itemize
 
 @node Unicode and i18n
@@ -595,7 +595,7 @@ functions do not work with multibyte strings.
 @end itemize
 
 The workarounds can be found in GNU gnulib
-@url{http://www.gnu.org/software/gnulib/}.
+@url{https://www.gnu.org/software/gnulib/}.
 @itemize @bullet
 @item
 gnulib has modules @samp{mbchar}, @samp{mbiter}, @samp{mbuiter} that
@@ -609,7 +609,7 @@ number of screen columns of a string is requested.
 gnulib has functions @func{mbschr} and @func{mbsrrchr} that are
 like @posixfunc{strchr} and @posixfunc{strrchr}, but work in multibyte locales.
 @item
-gnulib has a function @func{mbsstr}, like @posixfunc{strstr}, but works
+gnulib has a function @func{mbsstr} that is like @posixfunc{strstr}, but works
 in multibyte locales.
 @item
 gnulib has functions @func{mbscspn}, @func{mbspbrk}, @func{mbsspn}
@@ -714,7 +714,10 @@ Variables of type @code{uint32_t *} denote UTF-32 strings, without byte
 order mark.  Their units are 4-byte words.
 
 Argument pairs @code{(@var{s}, @var{n})} denote a string
-@code{@var{s}[0..@var{n}-1]} with exactly @var{n} units.
+@code{@var{s}[0..@var{n}-1]} with exactly @var{n} units.@footnote{A NUL
+unit as terminator is not needed, since the number of units is given by
+@var{n}.  If some of the units of the string are NUL, they are just
+regular units; they are not interpreted as terminators.}
 
 All functions with prefix @samp{ulc_} operate on C strings in locale
 encoding.
@@ -753,6 +756,27 @@ into @code{*@var{lengthp}} units, it is put in @var{resultbuf}, and
 is returned.  In both cases, @code{*@var{lengthp}} is set to the
 length (number of units) of the returned string.  In case of error,
 NULL is returned and @code{errno} is set.
+
+To invoke such a function:
+@itemize @bullet
+@item
+First ask yourself whether you want to accept the overhead of a
+@code{malloc} invocation even for a small-sized result.
+If yes, pass NULL as @var{resultbuf}.
+If no, allocate an array of units on the stack, typically between 50 and
+4000 bytes large; pass this array as @var{resultbuf}; and initialize
+@code{*@var{lengthp}} to the number of units of this array.
+@item
+Upon return from such a function, look at the return value:
+NULL means an error; look at the value of @code{errno} in this case.
+Otherwise, the return value is the result, with @code{*@var{lengthp}}
+units.  Note that the function has @emph{not} added an extra NUL
+character at the end.
+@item
+Finally, do memory management.  You know that the result was
+@code{malloc}-allocated if it is @code{!= NULL} and
+@code{!= @var{resultbuf}}.
+@end itemize
 
 @include unitypes.texi
 @include unistr.texi
@@ -840,14 +864,16 @@ version number of the libunistring library.
 
 @deftypevr Macro int _LIBUNISTRING_VERSION
 This constant contains the version of libunistring that is being used
-at compile time.  It encodes the major and minor parts of the version
-number only.  These parts are encoded in the form @code{(major<<8) + minor}.
+at compile time.
+It encodes the major, minor, and subminor parts of the version number.
+These parts are encoded in the form @code{(major<<16) + (minor<<8) + subminor}.
 @end deftypevr
 
 @deftypevr Constant int _libunistring_version
 This constant contains the version of libunistring that is being used
-at run time.  It encodes the major and minor parts of the version
-number only.  These parts are encoded in the form @code{(major<<8) + minor}.
+at run time.
+It encodes the major, minor, and subminor parts of the version number.
+These parts are encoded in the form @code{(major<<16) + (minor<<8) + subminor}.
 @end deftypevr
 
 It is possible that @code{_libunistring_version} is greater than
@@ -856,6 +882,15 @@ It is possible that @code{_libunistring_version} is greater than
 backward-compatible version has been installed after your program
 that uses @code{libunistring} was installed.
 
+@code{<unistring/version.h>} also contains:
+
+@deftypevr Constant int _libunistring_unicode_version
+This constant contains the version of the Unicode standard that is
+implemented by libunistring.
+It encodes the major and minor parts of the version number only.
+These parts are encoded in the form @code{(major<<8) + minor}.
+@end deftypevr
+
 @node Autoconf macro
 @section Autoconf macro
 
@@ -863,7 +898,7 @@ that uses @code{libunistring} was installed.
 GNU Gnulib provides an autoconf macro that tests for the availability
 of @code{libunistring}.  It is contained in the Gnulib module
 @samp{libunistring}, see@texnl{}
-@url{http://www.gnu.org/software/gnulib/MODULES.html#module=libunistring}.
+@url{https://www.gnu.org/software/gnulib/MODULES.html#module=libunistring}.
 
 @amindex gl_LIBUNISTRING
 The macro is called @code{gl_LIBUNISTRING}.  It searches for an installed
@@ -901,10 +936,10 @@ on most systems.
 @cindex bug reports
 @cindex bug tracker
 @cindex mailing list
-If you encounter any problem, please don't hesitate to send a detailed
-bug report to the @code{bug-libunistring@@gnu.org} mailing list.  You can
-alternatively also use the bug tracker at the project page
-@url{https://savannah.gnu.org/projects/libunistring}.
+If you encounter any problem, please don't hesitate to submit a detailed
+bug report either in the bug tracker at the project page
+@url{https://savannah.gnu.org/projects/libunistring}, or by email
+to the @code{bug-libunistring@@gnu.org} mailing list.
 
 Please always include the version number of this library, and a short
 description of your operating system and compilation environment with
@@ -924,9 +959,11 @@ For bidirectional reordering of strings, we recommend the GNU FriBidi library:
 @cindex rendering
 For the rendering of Unicode strings outside of the context of a given toolkit
 (KDE/Qt or GNOME/Gtk), we recommend the Pango library:
-@url{http://www.pango.org/}.
+@url{https://www.pango.org/}.
 
 @include wchar_t.texi
+
+@include char32_t.texi
 
 @node Licenses
 @appendix Licenses
@@ -938,15 +975,16 @@ particular file or directory.  Here is a summary:
 @itemize @bullet
 @item
 The @code{libunistring} library and its header files are dual-licensed under
-"the GNU LGPLv3+ or the GNU GPLv2". This means, you can use it under either
+"the GNU LGPLv3+ or the GNU GPLv2+". This means, you can use it under either
 @itemize @bullet
 @item @minus{}
 the terms of the GNU Lesser General Public License (LGPL) version 3 or
 (at your option) any later version, or
 @item @minus{}
-the terms of the GNU General Public License (GPL) version 2, or
+the terms of the GNU General Public License (GPL) version 2 or
+(at your option) any later version, or
 @item @minus{}
-the same dual license "the GNU LGPLv3+ or the GNU GPLv2".
+the same dual license "the GNU LGPLv3+ or the GNU GPLv2+".
 @end itemize
 You find the GNU LGPL version 3 in @ref{GNU LGPL}.  This license is
 based on the GNU GPL version 3, see @ref{GNU GPL}.

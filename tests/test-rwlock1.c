@@ -1,9 +1,9 @@
 /* Test of glthread_rwlock_rdlock function.
-   Copyright (C) 2017-2018 Free Software Foundation, Inc.
+   Copyright (C) 2017-2024 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
+   the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
@@ -21,6 +21,8 @@
 
 #include <config.h>
 
+#if USE_ISOC_THREADS || USE_POSIX_THREADS || USE_ISOC_AND_POSIX_THREADS || USE_WINDOWS_THREADS
+
 #include "glthread/lock.h"
 
 #include <errno.h>
@@ -29,7 +31,6 @@
 #include <unistd.h>
 
 #include "glthread/thread.h"
-#include "glthread/yield.h"
 
 /* Verify that in a situation where
      - an rwlock is taken by a reader and has a writer waiting,
@@ -48,7 +49,7 @@
    POSIX:2008 makes this requirement only for implementations that support TPS
    (Thread Priority Scheduling) and only for the scheduling policies SCHED_FIFO
    and SCHED_RR, see
-   http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_rwlock_rdlock.html
+   https://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_rwlock_rdlock.html
    but test verifies the guarantee regardless of TPS and regardless of
    scheduling policy.  */
 
@@ -72,7 +73,7 @@ static gl_thread_t timer;
 static gl_lock_t baton;
 
 static void *
-timer_func (void *ignored)
+timer_func (_GL_UNUSED void *ignored)
 {
   /* Step 13 (can be before or after step 12):
      The timer thread takes the baton, then waits a moment to make sure
@@ -86,7 +87,7 @@ timer_func (void *ignored)
 }
 
 static void *
-reader2_func (void *ignored)
+reader2_func (_GL_UNUSED void *ignored)
 {
   int err;
 
@@ -112,7 +113,7 @@ reader2_func (void *ignored)
 }
 
 static void *
-writer_func (void *ignored)
+writer_func (_GL_UNUSED void *ignored)
 {
   /* Step 4: Take the baton, so that the second reader thread does not go ahead
      too early.  */
@@ -149,9 +150,21 @@ main ()
   /* Job done.  Go to sleep.  */
   for (;;)
     {
-      /* In cooperative threads implementations (Pth), give other threads
-         a chance to run.  */
-      gl_thread_yield ();
       sleep (1);
     }
 }
+
+#else
+
+/* No multithreading available.  */
+
+#include <stdio.h>
+
+int
+main ()
+{
+  fputs ("Skipping test: multithreading not enabled\n", stderr);
+  return 77;
+}
+
+#endif

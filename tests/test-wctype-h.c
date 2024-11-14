@@ -1,9 +1,9 @@
 /* Test of <wctype.h> substitute.
-   Copyright (C) 2007-2018 Free Software Foundation, Inc.
+   Copyright (C) 2007-2024 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
+   the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
@@ -20,8 +20,6 @@
 
 #include <wctype.h>
 
-#include "macros.h"
-
 /* Check that the type wint_t is defined.  */
 wint_t a = 'x';
 /* Check that WEOF is defined.  */
@@ -32,6 +30,8 @@ wctype_t p;
 
 /* Check that the type wctrans_t is defined.  */
 wctrans_t q;
+
+#include "macros.h"
 
 int
 main (void)
@@ -61,6 +61,43 @@ main (void)
   ASSERT (!iswspace (e));
   ASSERT (!iswupper (e));
   ASSERT (!iswxdigit (e));
+
+  /* Sanity check for the iswprint function.  */
+  ASSERT (iswprint (L' '));
+  ASSERT (!iswprint (L'\t'));
+  ASSERT (!iswprint (L'\n'));
+
+  /* Sanity check for the iswpunct function.
+     These characters are usually expected to be punctuation or symbol
+     characters.  */
+  ASSERT (iswpunct (L'!'));
+  ASSERT (iswpunct (L'"'));
+  ASSERT (iswpunct (L'#'));
+  ASSERT (iswpunct (L'%'));
+  ASSERT (iswpunct (L'&'));
+  ASSERT (iswpunct (L'\''));
+  ASSERT (iswpunct (L'('));
+  ASSERT (iswpunct (L')'));
+  ASSERT (iswpunct (L'*'));
+  ASSERT (iswpunct (L','));
+  ASSERT (iswpunct (L'-'));
+  ASSERT (iswpunct (L'.'));
+  ASSERT (iswpunct (L'/'));
+  ASSERT (iswpunct (L':'));
+  ASSERT (iswpunct (L';'));
+  ASSERT (iswpunct (L'?'));
+  ASSERT (iswpunct (L'@'));
+  ASSERT (iswpunct (L'['));
+  ASSERT (iswpunct (L'\\'));
+  ASSERT (iswpunct (L']'));
+  ASSERT (iswpunct (L'_'));
+  ASSERT (iswpunct (L'{'));
+  ASSERT (iswpunct (L'}'));
+  ASSERT (!iswpunct (L'5'));
+  ASSERT (!iswpunct (L'F'));
+  ASSERT (!iswpunct (L' '));
+  ASSERT (!iswpunct (L'\t'));
+  ASSERT (!iswpunct (L'\n'));
 
   /* Check that the tow* functions exist as functions or as macros.  */
   (void) towlower (0);

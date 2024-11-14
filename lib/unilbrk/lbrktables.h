@@ -1,28 +1,27 @@
 /* Line breaking auxiliary tables.
-   Copyright (C) 2001-2003, 2006-2018 Free Software Foundation, Inc.
+   Copyright (C) 2001-2003, 2006-2024 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2001.
 
-   This program is free software: you can redistribute it and/or
-   modify it under the terms of either:
+   This file is free software.
+   It is dual-licensed under "the GNU LGPLv3+ or the GNU GPLv2+".
+   You can redistribute it and/or modify it under either
+     - the terms of the GNU Lesser General Public License as published
+       by the Free Software Foundation, either version 3, or (at your
+       option) any later version, or
+     - the terms of the GNU General Public License as published by the
+       Free Software Foundation; either version 2, or (at your option)
+       any later version, or
+     - the same dual license "the GNU LGPLv3+ or the GNU GPLv2+".
 
-     * the GNU Lesser General Public License as published by the Free
-       Software Foundation; either version 3 of the License, or (at your
-       option) any later version.
-
-   or
-
-     * the GNU General Public License as published by the Free
-       Software Foundation; either version 2 of the License, or (at your
-       option) any later version.
-
-   or both in parallel, as here.
-   This program is distributed in the hope that it will be useful,
+   This file is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Lesser General Public License for more details.
+   Lesser General Public License and the GNU General Public License
+   for more details.
 
-   You should have received a copy of the GNU Lesser General Public License
-   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
+   You should have received a copy of the GNU Lesser General Public
+   License and of the GNU General Public License along with this
+   program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 #include "unitypes.h"
 
@@ -30,50 +29,62 @@
 
 enum
 {
-  /* Values >= 30 are resolved at run time. */
-  LBP_BK = 30, /* mandatory break */
-/*LBP_CR,         carriage return - not used here because it's a DOSism */
-/*LBP_LF,         line feed - not used here because it's a DOSism */
-  LBP_CM = 31, /* attached characters and combining marks */
-/*LBP_NL,         next line - not used here because it's equivalent to LBP_BK */
-/*LBP_SG,         surrogates - not used here because they are not characters */
-  LBP_WJ =  0, /* word joiner */
-  LBP_ZW = 32, /* zero width space */
-  LBP_GL =  1, /* non-breaking (glue) */
-  LBP_SP = 33, /* space */
-  LBP_B2 =  2, /* break opportunity before and after */
-  LBP_BA =  3, /* break opportunity after */
-  LBP_BB =  4, /* break opportunity before */
-  LBP_HY =  5, /* hyphen */
-  LBP_CB = 34, /* contingent break opportunity */
-  LBP_CL =  6, /* closing punctuation */
-  LBP_CP =  7, /* closing parenthesis */
-  LBP_EX =  8, /* exclamation/interrogation */
-  LBP_IN =  9, /* inseparable */
-  LBP_NS = 10, /* non starter */
-  LBP_OP = 11, /* opening punctuation */
-  LBP_QU = 12, /* ambiguous quotation */
-  LBP_IS = 13, /* infix separator (numeric) */
-  LBP_NU = 14, /* numeric */
-  LBP_PO = 15, /* postfix (numeric) */
-  LBP_PR = 16, /* prefix (numeric) */
-  LBP_SY = 17, /* symbols allowing breaks */
-  LBP_AI = 35, /* ambiguous (alphabetic or ideograph) */
-  LBP_AL = 18, /* ordinary alphabetic and symbol characters */
-/*LBP_CJ,         conditional Japanese starters, resolved to NS */
-  LBP_H2 = 19, /* Hangul LV syllable */
-  LBP_H3 = 20, /* Hangul LVT syllable */
-  LBP_HL = 25, /* Hebrew letter */
-  LBP_ID = 21, /* ideographic */
-  LBP_JL = 22, /* Hangul L Jamo */
-  LBP_JV = 23, /* Hangul V Jamo */
-  LBP_JT = 24, /* Hangul T Jamo */
-  LBP_RI = 26, /* regional indicator */
-  LBP_SA = 36, /* complex context (South East Asian) */
-  LBP_ZWJ = 27, /* zero width joiner */
-  LBP_EB = 28, /* emoji base */
-  LBP_EM = 29, /* emoji modifier */
-  LBP_XX = 37  /* unknown */
+  /* Values >= 40 are resolved at run time. */
+  LBP_BK  = 40, /* mandatory break */
+  LBP_CR  = 41, /* carriage return */
+  LBP_LF  = 42, /* line feed */
+  LBP_CM  = 43, /* attached characters and combining marks */
+/*LBP_NL,          next line - not used here because it's equivalent to LBP_BK */
+/*LBP_SG,          surrogates - not used here because they are not characters */
+  LBP_WJ  =  0, /* word joiner */
+  LBP_ZW  = 44, /* zero width space */
+  LBP_GL  =  1, /* non-breaking (glue) */
+  LBP_SP  = 45, /* space */
+  LBP_B2  =  2, /* break opportunity before and after */
+  LBP_BA  =  3, /* break opportunity after */
+  LBP_BB  =  4, /* break opportunity before */
+  LBP_HY  =  5, /* hyphen */
+  LBP_CB  = 46, /* contingent break opportunity */
+  LBP_CL  =  6, /* closing punctuation */
+  LBP_CP1 =  7, /* closing parenthesis, non-EastAsian character */
+  LBP_CP2 =  8, /* closing parenthesis, EastAsian character */
+  LBP_EX  =  9, /* exclamation/interrogation */
+  LBP_IN  = 10, /* inseparable */
+  LBP_NS  = 11, /* non starter */
+  LBP_OP1 = 12, /* opening punctuation, non-EastAsian character */
+  LBP_OP2 = 13, /* opening punctuation, EastAsian character */
+  LBP_QU1 = 14, /* ambiguous quotation, neither initial nor final punctuation */
+  LBP_QU2 = 15, /* ambiguous quotation, initial punctuation */
+  LBP_QU3 = 16, /* ambiguous quotation, final punctuation */
+  LBP_IS  = 17, /* infix separator (numeric) */
+  LBP_NU  = 18, /* numeric */
+  LBP_PO  = 19, /* postfix (numeric) */
+  LBP_PR  = 20, /* prefix (numeric) */
+  LBP_SY  = 21, /* symbols allowing breaks */
+  LBP_AI  = 47, /* ambiguous (alphabetic or ideograph) */
+  LBP_AL  = 22, /* ordinary alphabetic and symbol characters */
+/*LBP_CJ,          conditional Japanese starter, resolved to NS */
+  LBP_H2  = 23, /* Hangul LV syllable */
+  LBP_H3  = 24, /* Hangul LVT syllable */
+  LBP_HL  = 30, /* Hebrew letter */
+  LBP_ID1 = 25, /* ideographic */
+  LBP_ID2 = 26, /* ideographic and potential future emoji */
+  LBP_JL  = 27, /* Hangul L Jamo */
+  LBP_JV  = 28, /* Hangul V Jamo */
+  LBP_JT  = 29, /* Hangul T Jamo */
+  LBP_AP  = 31, /* Brahmic scripts: pre-base repha */
+  LBP_AK  = 32, /* Brahmic scripts: consonants */
+  LBP_AS  = 33, /* Brahmic scripts: independent vowels */
+  LBP_VI  = 34, /* Brahmic scripts: conjoining viramas */
+  LBP_VF  = 35, /* Brahmic scripts: viramas for final consonants */
+  LBP_RI  = 36, /* regional indicator */
+  LBP_SA  = 48, /* complex context (South East Asian) */
+  LBP_ZWJ = 37, /* zero width joiner */
+  LBP_EB  = 38, /* emoji base */
+  LBP_EM  = 39, /* emoji modifier */
+  LBP_XX  = 49, /* unknown */
+  /* Artificial values that exist only at runtime, not in the tables. */
+  LBP_HL_BA = 100
 };
 
 #include "lbrkprop1.h"
@@ -104,7 +115,7 @@ unilbrkprop_lookup (ucs4_t uc)
 #define I 2  /* indirect break opportunity, '%' in table 7.3 of UTR #14 */
 #define P 3  /* prohibited break,           '^' in table 7.3 of UTR #14 */
 
-extern const unsigned char unilbrk_table[30][30];
+extern const unsigned char unilbrk_table[40][40];
 
 /* We don't support line breaking of complex-context dependent characters
    (Thai, Lao, Myanmar, Khmer) yet, because it requires dictionary lookup. */
