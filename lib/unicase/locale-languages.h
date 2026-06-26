@@ -1,5 +1,5 @@
 /* ANSI-C code produced by gperf version 3.2 */
-/* Command-line: gperf -m 10 ../../lib/unicase/locale-languages.gperf  */
+/* Command-line: gperf -m 10 ./unicase/locale-languages.gperf  */
 /* Computed positions: -k'1-3' */
 
 #if !((' ' == 32) && ('!' == 33) && ('"' == 34) && ('#' == 35) \
@@ -1036,7 +1036,7 @@ uc_locale_languages_lookup (register const char *str, register size_t len)
     }
   return 0;
 }
-#line 295 "../../lib/unicase/locale-languages.gperf"
+#line 295 "./unicase/locale-languages.gperf"
 
 /*
  * Local Variables:

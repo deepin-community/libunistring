@@ -169,7 +169,7 @@ main (int argc, char *argv[])
                 ASSERT (mbsinit (&state));
               }
         }
-        return 0;
+        return test_exit_status;
 
       case '2':
         /* Locale encoding is ISO-8859-1 or ISO-8859-15.  */
@@ -216,7 +216,7 @@ main (int argc, char *argv[])
           ASSERT (wc == 'r');
           ASSERT (mbsinit (&state));
         }
-        return 0;
+        return test_exit_status;
 
       case '3':
         /* Locale encoding is UTF-8.  */
@@ -271,7 +271,35 @@ main (int argc, char *argv[])
           ASSERT (wc == 'r');
           ASSERT (mbsinit (&state));
         }
-        return 0;
+        if (sizeof (wchar_t) > 2)
+          { /* \360\237\220\203 = U+0001F403 */
+            memset (&state, '\0', sizeof (mbstate_t));
+
+            wc = (wchar_t) 0xBADFACE;
+            ret = mbrtowc (&wc, "\360", 1, &state);
+            ASSERT (ret == (size_t)(-2));
+            ASSERT (wc == (wchar_t) 0xBADFACE);
+            ASSERT (!mbsinit (&state));
+
+            wc = (wchar_t) 0xBADFACE;
+            ret = mbrtowc (&wc, "\237", 1, &state);
+            ASSERT (ret == (size_t)(-2));
+            ASSERT (wc == (wchar_t) 0xBADFACE);
+            ASSERT (!mbsinit (&state));
+
+            wc = (wchar_t) 0xBADFACE;
+            ret = mbrtowc (&wc, "\220", 1, &state);
+            ASSERT (ret == (size_t)(-2));
+            ASSERT (wc == (wchar_t) 0xBADFACE);
+            ASSERT (!mbsinit (&state));
+
+            wc = (wchar_t) 0xBADFACE;
+            ret = mbrtowc (&wc, "\203", 1, &state);
+            ASSERT (ret == 1);
+            ASSERT (wctob (wc) == EOF);
+            ASSERT (mbsinit (&state));
+          }
+        return test_exit_status;
 
       case '4':
         /* Locale encoding is EUC-JP.  */
@@ -327,7 +355,7 @@ main (int argc, char *argv[])
           ASSERT (wc == '>');
           ASSERT (mbsinit (&state));
         }
-        return 0;
+        return test_exit_status;
 
       case '5':
         /* Locale encoding is GB18030.  */
@@ -384,7 +412,35 @@ main (int argc, char *argv[])
           ASSERT (wc == 'r');
           ASSERT (mbsinit (&state));
         }
-        return 0;
+        if (sizeof (wchar_t) > 2)
+          { /* \224\071\311\067 = U+0001F403 */
+            memset (&state, '\0', sizeof (mbstate_t));
+
+            wc = (wchar_t) 0xBADFACE;
+            ret = mbrtowc (&wc, "\224", 1, &state);
+            ASSERT (ret == (size_t)(-2));
+            ASSERT (wc == (wchar_t) 0xBADFACE);
+            ASSERT (!mbsinit (&state));
+
+            wc = (wchar_t) 0xBADFACE;
+            ret = mbrtowc (&wc, "\071", 1, &state);
+            ASSERT (ret == (size_t)(-2));
+            ASSERT (wc == (wchar_t) 0xBADFACE);
+            ASSERT (!mbsinit (&state));
+
+            wc = (wchar_t) 0xBADFACE;
+            ret = mbrtowc (&wc, "\311", 1, &state);
+            ASSERT (ret == (size_t)(-2));
+            ASSERT (wc == (wchar_t) 0xBADFACE);
+            ASSERT (!mbsinit (&state));
+
+            wc = (wchar_t) 0xBADFACE;
+            ret = mbrtowc (&wc, "\067", 1, &state);
+            ASSERT (ret == 1);
+            ASSERT (wctob (wc) == EOF);
+            ASSERT (mbsinit (&state));
+          }
+        return test_exit_status;
       }
 
   return 1;

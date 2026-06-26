@@ -1,5 +1,5 @@
 /* ANSI-C code produced by gperf version 3.2 */
-/* Command-line: gperf -m 10 ./unictype/pr_byname.gperf  */
+/* Command-line: gperf -m 10 unictype/pr_byname.gperf  */
 /* Computed positions: -k'1-2,8,14,18,$' */
 
 #if !((' ' == 32) && ('!' == 33) && ('"' == 34) && ('#' == 35) \
@@ -29,15 +29,15 @@
 #error "gperf generated tables don't work with this execution character set. Please report a bug to <bug-gperf@gnu.org>."
 #endif
 
-#line 25 "./unictype/pr_byname.gperf"
+#line 25 "unictype/pr_byname.gperf"
 struct named_property { int name; int property_index; };
 
-#define TOTAL_KEYWORDS 217
+#define TOTAL_KEYWORDS 219
 #define MIN_WORD_LENGTH 2
 #define MAX_WORD_LENGTH 34
 #define MIN_HASH_VALUE 14
-#define MAX_HASH_VALUE 555
-/* maximum key range = 542, duplicates = 0 */
+#define MAX_HASH_VALUE 565
+/* maximum key range = 552, duplicates = 0 */
 
 #ifdef __GNUC__
 __inline
@@ -51,19 +51,19 @@ properties_hash (register const char *str, register size_t len)
 {
   static const unsigned short asso_values[] =
     {
-      556, 556, 556, 556, 556, 556, 556, 556, 556, 556,
-      556, 556, 556, 556, 556, 556, 556, 556, 556, 556,
-      556, 556, 556, 556, 556, 556, 556, 556, 556, 556,
-      556, 556, 556, 556, 556, 556, 556, 556, 556, 556,
-      556, 556, 556, 556, 556, 556, 556, 556, 556, 556,
-      556, 556, 556, 556, 556, 556, 556, 556, 556, 556,
-      556, 556, 556, 556, 556, 556, 556, 556, 556, 556,
-      556, 556, 556, 556, 556, 556, 556, 556, 556, 556,
-      556, 556, 556, 556, 556, 556, 556, 556, 556, 556,
-      556, 556, 556, 556, 556,  88, 556,  36,  45,  84,
-        4,   4, 127, 202, 118,   4, 108, 102,   6, 154,
+      566, 566, 566, 566, 566, 566, 566, 566, 566, 566,
+      566, 566, 566, 566, 566, 566, 566, 566, 566, 566,
+      566, 566, 566, 566, 566, 566, 566, 566, 566, 566,
+      566, 566, 566, 566, 566, 566, 566, 566, 566, 566,
+      566, 566, 566, 566, 566, 566, 566, 566, 566, 566,
+      566, 566, 566, 566, 566, 566, 566, 566, 566, 566,
+      566, 566, 566, 566, 566, 566, 566, 566, 566, 566,
+      566, 566, 566, 566, 566, 566, 566, 566, 566, 566,
+      566, 566, 566, 566, 566, 566, 566, 566, 566, 566,
+      566, 566, 566, 566, 566,  88, 566,  36,  45,  84,
+        4,   4, 127, 202, 118,   4,  76, 102,   6, 164,
        63,   4,  92,  14,   9,  25,   7,  57,  34, 122,
-      159,  60,  13, 556, 556, 556, 556, 556
+      159,  60,  13, 566, 566, 566, 566, 566
     };
   register unsigned int hval = len;
 
@@ -183,6 +183,7 @@ struct properties_stringpool_t
     char properties_stringpool_str100[sizeof("idsunaryoperator")];
     char properties_stringpool_str101[sizeof("bidi_eur_num_terminator")];
     char properties_stringpool_str103[sizeof("dep")];
+    char properties_stringpool_str104[sizeof("joincontrol")];
     char properties_stringpool_str105[sizeof("diacritic")];
     char properties_stringpool_str106[sizeof("idcompatmathcontinue")];
     char properties_stringpool_str108[sizeof("composite")];
@@ -200,7 +201,6 @@ struct properties_stringpool_t
     char properties_stringpool_str129[sizeof("cased")];
     char properties_stringpool_str130[sizeof("bidi_control")];
     char properties_stringpool_str134[sizeof("line_separator")];
-    char properties_stringpool_str136[sizeof("joincontrol")];
     char properties_stringpool_str137[sizeof("othergraphemeextend")];
     char properties_stringpool_str138[sizeof("bidic")];
     char properties_stringpool_str139[sizeof("bidi_c")];
@@ -220,9 +220,11 @@ struct properties_stringpool_t
     char properties_stringpool_str158[sizeof("patws")];
     char properties_stringpool_str159[sizeof("pat_ws")];
     char properties_stringpool_str160[sizeof("terminalpunctuation")];
+    char properties_stringpool_str161[sizeof("join_control")];
     char properties_stringpool_str162[sizeof("dash")];
     char properties_stringpool_str163[sizeof("upper")];
-    char properties_stringpool_str169[sizeof("term")];
+    char properties_stringpool_str169[sizeof("joinc")];
+    char properties_stringpool_str170[sizeof("join_c")];
     char properties_stringpool_str171[sizeof("otheridcontinue")];
     char properties_stringpool_str172[sizeof("privateuse")];
     char properties_stringpool_str173[sizeof("ext")];
@@ -230,6 +232,7 @@ struct properties_stringpool_t
     char properties_stringpool_str176[sizeof("bidi_european_digit")];
     char properties_stringpool_str177[sizeof("bidiboundaryneutral")];
     char properties_stringpool_str178[sizeof("bidiblockseparator")];
+    char properties_stringpool_str179[sizeof("term")];
     char properties_stringpool_str180[sizeof("bidieurnumseparator")];
     char properties_stringpool_str181[sizeof("bidi_block_separator")];
     char properties_stringpool_str182[sizeof("xidcontinue")];
@@ -242,14 +245,11 @@ struct properties_stringpool_t
     char properties_stringpool_str189[sizeof("extender")];
     char properties_stringpool_str190[sizeof("quotationmark")];
     char properties_stringpool_str192[sizeof("xids")];
-    char properties_stringpool_str193[sizeof("join_control")];
     char properties_stringpool_str195[sizeof("ideographic")];
     char properties_stringpool_str196[sizeof("bidilefttoright")];
     char properties_stringpool_str197[sizeof("patsyn")];
     char properties_stringpool_str198[sizeof("pat_syn")];
     char properties_stringpool_str199[sizeof("ids_trinary_operator")];
-    char properties_stringpool_str201[sizeof("joinc")];
-    char properties_stringpool_str202[sizeof("join_c")];
     char properties_stringpool_str204[sizeof("private_use")];
     char properties_stringpool_str205[sizeof("case_ignorable")];
     char properties_stringpool_str206[sizeof("otheralphabetic")];
@@ -291,45 +291,45 @@ struct properties_stringpool_t
     char properties_stringpool_str265[sizeof("paragraphseparator")];
     char properties_stringpool_str266[sizeof("cwu")];
     char properties_stringpool_str267[sizeof("unassignedcodevalue")];
-    char properties_stringpool_str271[sizeof("bidicommonseparator")];
     char properties_stringpool_str272[sizeof("pairedpunctuation")];
-    char properties_stringpool_str273[sizeof("bidi_common_separator")];
-    char properties_stringpool_str275[sizeof("qmark")];
     char properties_stringpool_str276[sizeof("logical_order_exception")];
     char properties_stringpool_str279[sizeof("nonbreak")];
-    char properties_stringpool_str281[sizeof("omath")];
+    char properties_stringpool_str281[sizeof("bidicommonseparator")];
+    char properties_stringpool_str283[sizeof("bidi_common_separator")];
     char properties_stringpool_str284[sizeof("hex")];
+    char properties_stringpool_str285[sizeof("qmark")];
     char properties_stringpool_str288[sizeof("paragraph_separator")];
     char properties_stringpool_str290[sizeof("whitespace")];
+    char properties_stringpool_str291[sizeof("omath")];
     char properties_stringpool_str293[sizeof("quotation_mark")];
     char properties_stringpool_str294[sizeof("unifiedideograph")];
     char properties_stringpool_str297[sizeof("grapheme_extend")];
-    char properties_stringpool_str302[sizeof("bidieurnumterminator")];
     char properties_stringpool_str305[sizeof("prependedconcatenationmark")];
     char properties_stringpool_str311[sizeof("bidi_pdf")];
-    char properties_stringpool_str312[sizeof("math")];
+    char properties_stringpool_str312[sizeof("bidieurnumterminator")];
     char properties_stringpool_str316[sizeof("bidi_segment_separator")];
     char properties_stringpool_str317[sizeof("ahex")];
     char properties_stringpool_str319[sizeof("grlink")];
     char properties_stringpool_str320[sizeof("gr_link")];
+    char properties_stringpool_str322[sizeof("math")];
     char properties_stringpool_str325[sizeof("patternsyntax")];
     char properties_stringpool_str328[sizeof("changes_when_titlecased")];
     char properties_stringpool_str329[sizeof("graphemelink")];
     char properties_stringpool_str330[sizeof("grapheme_link")];
-    char properties_stringpool_str331[sizeof("bidisegmentseparator")];
     char properties_stringpool_str332[sizeof("changes_when_lowercased")];
     char properties_stringpool_str337[sizeof("cwcf")];
+    char properties_stringpool_str341[sizeof("bidisegmentseparator")];
     char properties_stringpool_str347[sizeof("white_space")];
     char properties_stringpool_str352[sizeof("unified_ideograph")];
     char properties_stringpool_str362[sizeof("combining")];
     char properties_stringpool_str363[sizeof("patternwhitespace")];
-    char properties_stringpool_str364[sizeof("cwcm")];
+    char properties_stringpool_str374[sizeof("cwcm")];
     char properties_stringpool_str380[sizeof("changeswhencasefolded")];
     char properties_stringpool_str382[sizeof("prepended_concatenation_mark")];
     char properties_stringpool_str383[sizeof("changes_when_uppercased")];
     char properties_stringpool_str392[sizeof("changeswhentitlecased")];
-    char properties_stringpool_str393[sizeof("bidi_non_spacing_mark")];
     char properties_stringpool_str400[sizeof("paired_punctuation")];
+    char properties_stringpool_str403[sizeof("bidi_non_spacing_mark")];
     char properties_stringpool_str411[sizeof("pattern_white_space")];
     char properties_stringpool_str413[sizeof("otherdefaultignorablecodepoint")];
     char properties_stringpool_str414[sizeof("bidi_embedding_or_override")];
@@ -337,9 +337,11 @@ struct properties_stringpool_t
     char properties_stringpool_str477[sizeof("changeswhenuppercased")];
     char properties_stringpool_str498[sizeof("bidinonspacingmark")];
     char properties_stringpool_str507[sizeof("changeswhenlowercased")];
+    char properties_stringpool_str508[sizeof("modifier_combining_mark")];
+    char properties_stringpool_str527[sizeof("modifiercombiningmark")];
     char properties_stringpool_str528[sizeof("changes_when_casefolded")];
     char properties_stringpool_str548[sizeof("pattern_syntax")];
-    char properties_stringpool_str555[sizeof("changes_when_casemapped")];
+    char properties_stringpool_str565[sizeof("changes_when_casemapped")];
   };
 static const struct properties_stringpool_t properties_stringpool_contents =
   {
@@ -403,6 +405,7 @@ static const struct properties_stringpool_t properties_stringpool_contents =
     "idsunaryoperator",
     "bidi_eur_num_terminator",
     "dep",
+    "joincontrol",
     "diacritic",
     "idcompatmathcontinue",
     "composite",
@@ -420,7 +423,6 @@ static const struct properties_stringpool_t properties_stringpool_contents =
     "cased",
     "bidi_control",
     "line_separator",
-    "joincontrol",
     "othergraphemeextend",
     "bidic",
     "bidi_c",
@@ -440,9 +442,11 @@ static const struct properties_stringpool_t properties_stringpool_contents =
     "patws",
     "pat_ws",
     "terminalpunctuation",
+    "join_control",
     "dash",
     "upper",
-    "term",
+    "joinc",
+    "join_c",
     "otheridcontinue",
     "privateuse",
     "ext",
@@ -450,6 +454,7 @@ static const struct properties_stringpool_t properties_stringpool_contents =
     "bidi_european_digit",
     "bidiboundaryneutral",
     "bidiblockseparator",
+    "term",
     "bidieurnumseparator",
     "bidi_block_separator",
     "xidcontinue",
@@ -462,14 +467,11 @@ static const struct properties_stringpool_t properties_stringpool_contents =
     "extender",
     "quotationmark",
     "xids",
-    "join_control",
     "ideographic",
     "bidilefttoright",
     "patsyn",
     "pat_syn",
     "ids_trinary_operator",
-    "joinc",
-    "join_c",
     "private_use",
     "case_ignorable",
     "otheralphabetic",
@@ -511,34 +513,34 @@ static const struct properties_stringpool_t properties_stringpool_contents =
     "paragraphseparator",
     "cwu",
     "unassignedcodevalue",
-    "bidicommonseparator",
     "pairedpunctuation",
-    "bidi_common_separator",
-    "qmark",
     "logical_order_exception",
     "nonbreak",
-    "omath",
+    "bidicommonseparator",
+    "bidi_common_separator",
     "hex",
+    "qmark",
     "paragraph_separator",
     "whitespace",
+    "omath",
     "quotation_mark",
     "unifiedideograph",
     "grapheme_extend",
-    "bidieurnumterminator",
     "prependedconcatenationmark",
     "bidi_pdf",
-    "math",
+    "bidieurnumterminator",
     "bidi_segment_separator",
     "ahex",
     "grlink",
     "gr_link",
+    "math",
     "patternsyntax",
     "changes_when_titlecased",
     "graphemelink",
     "grapheme_link",
-    "bidisegmentseparator",
     "changes_when_lowercased",
     "cwcf",
+    "bidisegmentseparator",
     "white_space",
     "unified_ideograph",
     "combining",
@@ -548,8 +550,8 @@ static const struct properties_stringpool_t properties_stringpool_contents =
     "prepended_concatenation_mark",
     "changes_when_uppercased",
     "changeswhentitlecased",
-    "bidi_non_spacing_mark",
     "paired_punctuation",
+    "bidi_non_spacing_mark",
     "pattern_white_space",
     "otherdefaultignorablecodepoint",
     "bidi_embedding_or_override",
@@ -557,6 +559,8 @@ static const struct properties_stringpool_t properties_stringpool_contents =
     "changeswhenuppercased",
     "bidinonspacingmark",
     "changeswhenlowercased",
+    "modifier_combining_mark",
+    "modifiercombiningmark",
     "changes_when_casefolded",
     "pattern_syntax",
     "changes_when_casemapped"
@@ -567,506 +571,504 @@ static const struct named_property properties[] =
   {
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1}, {-1}, {-1}, {-1}, {-1},
-#line 49 "./unictype/pr_byname.gperf"
+#line 49 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str14, UC_PROPERTY_INDEX_DEFAULT_IGNORABLE_CODE_POINT},
-#line 52 "./unictype/pr_byname.gperf"
+#line 52 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str15, UC_PROPERTY_INDEX_OTHER_DEFAULT_IGNORABLE_CODE_POINT},
-#line 193 "./unictype/pr_byname.gperf"
+#line 195 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str16, UC_PROPERTY_INDEX_IDEOGRAPHIC},
-#line 57 "./unictype/pr_byname.gperf"
+#line 57 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str17, UC_PROPERTY_INDEX_LOGICAL_ORDER_EXCEPTION},
     {-1},
-#line 206 "./unictype/pr_byname.gperf"
+#line 208 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str19, UC_PROPERTY_INDEX_IDS_TRINARY_OPERATOR},
     {-1}, {-1},
-#line 99 "./unictype/pr_byname.gperf"
+#line 99 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str22, UC_PROPERTY_INDEX_ID_START},
     {-1},
-#line 71 "./unictype/pr_byname.gperf"
+#line 71 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str24, UC_PROPERTY_INDEX_LOWERCASE},
-#line 74 "./unictype/pr_byname.gperf"
+#line 74 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str25, UC_PROPERTY_INDEX_OTHER_LOWERCASE},
     {-1},
-#line 104 "./unictype/pr_byname.gperf"
+#line 104 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str27, UC_PROPERTY_INDEX_ID_CONTINUE},
     {-1},
-#line 53 "./unictype/pr_byname.gperf"
+#line 53 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str29, UC_PROPERTY_INDEX_DEPRECATED},
-#line 98 "./unictype/pr_byname.gperf"
+#line 98 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str30, UC_PROPERTY_INDEX_ID_START},
-#line 246 "./unictype/pr_byname.gperf"
+#line 248 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str31, UC_PROPERTY_INDEX_DECIMAL_DIGIT},
     {-1}, {-1}, {-1},
-#line 97 "./unictype/pr_byname.gperf"
+#line 97 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str35, UC_PROPERTY_INDEX_SOFT_DOTTED},
-#line 100 "./unictype/pr_byname.gperf"
+#line 100 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str36, UC_PROPERTY_INDEX_ID_START},
-#line 103 "./unictype/pr_byname.gperf"
+#line 103 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str37, UC_PROPERTY_INDEX_OTHER_ID_START},
-#line 118 "./unictype/pr_byname.gperf"
+#line 118 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str38, UC_PROPERTY_INDEX_ID_COMPAT_MATH_START},
     {-1},
-#line 107 "./unictype/pr_byname.gperf"
+#line 107 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str40, UC_PROPERTY_INDEX_OTHER_ID_CONTINUE},
     {-1}, {-1},
-#line 101 "./unictype/pr_byname.gperf"
+#line 101 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str43, UC_PROPERTY_INDEX_OTHER_ID_START},
     {-1}, {-1},
-#line 117 "./unictype/pr_byname.gperf"
+#line 117 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str46, UC_PROPERTY_INDEX_ID_COMPAT_MATH_START},
-#line 249 "./unictype/pr_byname.gperf"
+#line 251 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str47, UC_PROPERTY_INDEX_DIACRITIC},
-#line 70 "./unictype/pr_byname.gperf"
+#line 70 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str48, UC_PROPERTY_INDEX_LOWERCASE},
-#line 75 "./unictype/pr_byname.gperf"
+#line 75 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str49, UC_PROPERTY_INDEX_TITLECASE},
-#line 96 "./unictype/pr_byname.gperf"
+#line 96 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str50, UC_PROPERTY_INDEX_SOFT_DOTTED},
-#line 95 "./unictype/pr_byname.gperf"
+#line 95 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str51, UC_PROPERTY_INDEX_SOFT_DOTTED},
     {-1},
-#line 212 "./unictype/pr_byname.gperf"
+#line 214 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str53, UC_PROPERTY_INDEX_ISO_CONTROL},
-#line 213 "./unictype/pr_byname.gperf"
+#line 215 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str54, UC_PROPERTY_INDEX_ISO_CONTROL},
-#line 102 "./unictype/pr_byname.gperf"
+#line 102 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str55, UC_PROPERTY_INDEX_OTHER_ID_START},
-#line 142 "./unictype/pr_byname.gperf"
+#line 142 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str56, UC_PROPERTY_INDEX_OTHER_GRAPHEME_EXTEND},
-#line 203 "./unictype/pr_byname.gperf"
+#line 205 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str57, UC_PROPERTY_INDEX_IDS_BINARY_OPERATOR},
-#line 197 "./unictype/pr_byname.gperf"
+#line 199 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str58, UC_PROPERTY_INDEX_RADICAL},
-#line 72 "./unictype/pr_byname.gperf"
+#line 72 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str59, UC_PROPERTY_INDEX_OTHER_LOWERCASE},
-#line 228 "./unictype/pr_byname.gperf"
+#line 230 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str60, UC_PROPERTY_INDEX_SENTENCE_TERMINAL},
     {-1},
-#line 198 "./unictype/pr_byname.gperf"
+#line 200 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str62, UC_PROPERTY_INDEX_IDS_UNARY_OPERATOR},
     {-1}, {-1},
-#line 242 "./unictype/pr_byname.gperf"
+#line 244 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str65, UC_PROPERTY_INDEX_LEFT_OF_PAIR},
     {-1}, {-1},
-#line 222 "./unictype/pr_byname.gperf"
+#line 224 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str68, UC_PROPERTY_INDEX_LINE_SEPARATOR},
-#line 200 "./unictype/pr_byname.gperf"
+#line 202 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str69, UC_PROPERTY_INDEX_IDS_UNARY_OPERATOR},
-#line 196 "./unictype/pr_byname.gperf"
+#line 198 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str70, UC_PROPERTY_INDEX_UNIFIED_IDEOGRAPH},
     {-1}, {-1},
-#line 151 "./unictype/pr_byname.gperf"
+#line 153 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str73, UC_PROPERTY_INDEX_BIDI_CONTROL},
     {-1}, {-1},
-#line 69 "./unictype/pr_byname.gperf"
+#line 69 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str76, UC_PROPERTY_INDEX_OTHER_UPPERCASE},
     {-1},
-#line 175 "./unictype/pr_byname.gperf"
+#line 177 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str78, UC_PROPERTY_INDEX_BIDI_WHITESPACE},
-#line 202 "./unictype/pr_byname.gperf"
+#line 204 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str79, UC_PROPERTY_INDEX_IDS_BINARY_OPERATOR},
-#line 201 "./unictype/pr_byname.gperf"
+#line 203 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str80, UC_PROPERTY_INDEX_IDS_BINARY_OPERATOR},
-#line 161 "./unictype/pr_byname.gperf"
+#line 163 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str81, UC_PROPERTY_INDEX_BIDI_EUROPEAN_DIGIT},
-#line 44 "./unictype/pr_byname.gperf"
+#line 44 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str82, UC_PROPERTY_INDEX_OTHER_ALPHABETIC},
-#line 41 "./unictype/pr_byname.gperf"
+#line 41 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str83, UC_PROPERTY_INDEX_ALPHABETIC},
-#line 185 "./unictype/pr_byname.gperf"
+#line 187 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str84, UC_PROPERTY_INDEX_BIDI_OTHER_NEUTRAL},
-#line 105 "./unictype/pr_byname.gperf"
+#line 105 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str85, UC_PROPERTY_INDEX_ID_CONTINUE},
-#line 60 "./unictype/pr_byname.gperf"
+#line 60 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str86, UC_PROPERTY_INDEX_VARIATION_SELECTOR},
     {-1},
-#line 183 "./unictype/pr_byname.gperf"
+#line 185 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str88, UC_PROPERTY_INDEX_BIDI_EMBEDDING_OR_OVERRIDE},
-#line 205 "./unictype/pr_byname.gperf"
+#line 207 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str89, UC_PROPERTY_INDEX_IDS_TRINARY_OPERATOR},
     {-1},
-#line 189 "./unictype/pr_byname.gperf"
+#line 191 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str91, UC_PROPERTY_INDEX_ASCII_HEX_DIGIT},
     {-1},
-#line 48 "./unictype/pr_byname.gperf"
+#line 48 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str93, UC_PROPERTY_INDEX_DEFAULT_IGNORABLE_CODE_POINT},
-#line 79 "./unictype/pr_byname.gperf"
+#line 79 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str94, UC_PROPERTY_INDEX_CASE_IGNORABLE},
-#line 106 "./unictype/pr_byname.gperf"
+#line 106 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str95, UC_PROPERTY_INDEX_ID_CONTINUE},
-#line 109 "./unictype/pr_byname.gperf"
+#line 109 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str96, UC_PROPERTY_INDEX_OTHER_ID_CONTINUE},
-#line 121 "./unictype/pr_byname.gperf"
+#line 121 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str97, UC_PROPERTY_INDEX_ID_COMPAT_MATH_CONTINUE},
-#line 46 "./unictype/pr_byname.gperf"
+#line 46 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str98, UC_PROPERTY_INDEX_NOT_A_CHARACTER},
     {-1},
-#line 199 "./unictype/pr_byname.gperf"
+#line 201 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str100, UC_PROPERTY_INDEX_IDS_UNARY_OPERATOR},
-#line 164 "./unictype/pr_byname.gperf"
+#line 166 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str101, UC_PROPERTY_INDEX_BIDI_EUR_NUM_TERMINATOR},
     {-1},
-#line 54 "./unictype/pr_byname.gperf"
+#line 54 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str103, UC_PROPERTY_INDEX_DEPRECATED},
-    {-1},
-#line 248 "./unictype/pr_byname.gperf"
+#line 131 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str104, UC_PROPERTY_INDEX_JOIN_CONTROL},
+#line 250 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str105, UC_PROPERTY_INDEX_DIACRITIC},
-#line 120 "./unictype/pr_byname.gperf"
+#line 120 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str106, UC_PROPERTY_INDEX_ID_COMPAT_MATH_CONTINUE},
     {-1},
-#line 244 "./unictype/pr_byname.gperf"
+#line 246 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str108, UC_PROPERTY_INDEX_COMPOSITE},
     {-1}, {-1},
-#line 230 "./unictype/pr_byname.gperf"
+#line 232 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str111, UC_PROPERTY_INDEX_TERMINAL_PUNCTUATION},
     {-1},
-#line 166 "./unictype/pr_byname.gperf"
+#line 168 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str113, UC_PROPERTY_INDEX_BIDI_ARABIC_DIGIT},
-#line 58 "./unictype/pr_byname.gperf"
+#line 58 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str114, UC_PROPERTY_INDEX_VARIATION_SELECTOR},
     {-1},
-#line 245 "./unictype/pr_byname.gperf"
+#line 247 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str116, UC_PROPERTY_INDEX_DECIMAL_DIGIT},
     {-1},
-#line 229 "./unictype/pr_byname.gperf"
+#line 231 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str118, UC_PROPERTY_INDEX_SENTENCE_TERMINAL},
-#line 241 "./unictype/pr_byname.gperf"
+#line 243 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str119, UC_PROPERTY_INDEX_LEFT_OF_PAIR},
-#line 167 "./unictype/pr_byname.gperf"
+#line 169 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str120, UC_PROPERTY_INDEX_BIDI_ARABIC_DIGIT},
     {-1}, {-1},
-#line 162 "./unictype/pr_byname.gperf"
+#line 164 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str123, UC_PROPERTY_INDEX_BIDI_EUR_NUM_SEPARATOR},
-#line 42 "./unictype/pr_byname.gperf"
+#line 42 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str124, UC_PROPERTY_INDEX_OTHER_ALPHABETIC},
-#line 68 "./unictype/pr_byname.gperf"
+#line 68 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str125, UC_PROPERTY_INDEX_OTHER_UPPERCASE},
-#line 209 "./unictype/pr_byname.gperf"
+#line 211 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str126, UC_PROPERTY_INDEX_SPACE},
     {-1}, {-1},
-#line 76 "./unictype/pr_byname.gperf"
+#line 76 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str129, UC_PROPERTY_INDEX_CASED},
-#line 150 "./unictype/pr_byname.gperf"
+#line 152 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str130, UC_PROPERTY_INDEX_BIDI_CONTROL},
     {-1}, {-1}, {-1},
-#line 221 "./unictype/pr_byname.gperf"
+#line 223 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str134, UC_PROPERTY_INDEX_LINE_SEPARATOR},
-    {-1},
-#line 131 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str136, UC_PROPERTY_INDEX_JOIN_CONTROL},
-#line 143 "./unictype/pr_byname.gperf"
+    {-1}, {-1},
+#line 143 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str137, UC_PROPERTY_INDEX_OTHER_GRAPHEME_EXTEND},
-#line 153 "./unictype/pr_byname.gperf"
+#line 155 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str138, UC_PROPERTY_INDEX_BIDI_CONTROL},
-#line 152 "./unictype/pr_byname.gperf"
+#line 154 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str139, UC_PROPERTY_INDEX_BIDI_CONTROL},
     {-1},
-#line 78 "./unictype/pr_byname.gperf"
+#line 78 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str141, UC_PROPERTY_INDEX_CASE_IGNORABLE},
-#line 186 "./unictype/pr_byname.gperf"
+#line 188 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str142, UC_PROPERTY_INDEX_HEX_DIGIT},
-#line 40 "./unictype/pr_byname.gperf"
+#line 40 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str143, UC_PROPERTY_INDEX_ALPHABETIC},
-#line 187 "./unictype/pr_byname.gperf"
+#line 189 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str144, UC_PROPERTY_INDEX_HEX_DIGIT},
-#line 237 "./unictype/pr_byname.gperf"
+#line 239 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str145, UC_PROPERTY_INDEX_OTHER_MATH},
     {-1},
-#line 67 "./unictype/pr_byname.gperf"
+#line 67 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str147, UC_PROPERTY_INDEX_OTHER_UPPERCASE},
-#line 50 "./unictype/pr_byname.gperf"
+#line 50 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str148, UC_PROPERTY_INDEX_OTHER_DEFAULT_IGNORABLE_CODE_POINT},
-#line 207 "./unictype/pr_byname.gperf"
+#line 209 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str149, UC_PROPERTY_INDEX_ZERO_WIDTH},
     {-1},
-#line 208 "./unictype/pr_byname.gperf"
+#line 210 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str151, UC_PROPERTY_INDEX_ZERO_WIDTH},
     {-1}, {-1},
-#line 215 "./unictype/pr_byname.gperf"
+#line 217 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str154, UC_PROPERTY_INDEX_FORMAT_CONTROL},
-#line 73 "./unictype/pr_byname.gperf"
+#line 73 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str155, UC_PROPERTY_INDEX_OTHER_LOWERCASE},
-#line 174 "./unictype/pr_byname.gperf"
+#line 176 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str156, UC_PROPERTY_INDEX_BIDI_WHITESPACE},
-#line 39 "./unictype/pr_byname.gperf"
+#line 39 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str157, UC_PROPERTY_INDEX_WHITE_SPACE},
-#line 125 "./unictype/pr_byname.gperf"
+#line 125 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str158, UC_PROPERTY_INDEX_PATTERN_WHITE_SPACE},
-#line 124 "./unictype/pr_byname.gperf"
+#line 124 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str159, UC_PROPERTY_INDEX_PATTERN_WHITE_SPACE},
-#line 231 "./unictype/pr_byname.gperf"
+#line 233 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str160, UC_PROPERTY_INDEX_TERMINAL_PUNCTUATION},
-    {-1},
-#line 218 "./unictype/pr_byname.gperf"
+#line 130 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str161, UC_PROPERTY_INDEX_JOIN_CONTROL},
+#line 220 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str162, UC_PROPERTY_INDEX_DASH},
-#line 66 "./unictype/pr_byname.gperf"
+#line 66 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str163, UC_PROPERTY_INDEX_UPPERCASE},
     {-1}, {-1}, {-1}, {-1}, {-1},
-#line 232 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str169, UC_PROPERTY_INDEX_TERMINAL_PUNCTUATION},
-    {-1},
-#line 108 "./unictype/pr_byname.gperf"
+#line 133 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str169, UC_PROPERTY_INDEX_JOIN_CONTROL},
+#line 132 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str170, UC_PROPERTY_INDEX_JOIN_CONTROL},
+#line 108 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str171, UC_PROPERTY_INDEX_OTHER_ID_CONTINUE},
-#line 62 "./unictype/pr_byname.gperf"
+#line 62 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str172, UC_PROPERTY_INDEX_PRIVATE_USE},
-#line 251 "./unictype/pr_byname.gperf"
+#line 253 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str173, UC_PROPERTY_INDEX_EXTENDER},
     {-1},
-#line 236 "./unictype/pr_byname.gperf"
+#line 238 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str175, UC_PROPERTY_INDEX_OTHER_MATH},
-#line 160 "./unictype/pr_byname.gperf"
+#line 162 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str176, UC_PROPERTY_INDEX_BIDI_EUROPEAN_DIGIT},
-#line 179 "./unictype/pr_byname.gperf"
+#line 181 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str177, UC_PROPERTY_INDEX_BIDI_BOUNDARY_NEUTRAL},
-#line 171 "./unictype/pr_byname.gperf"
+#line 173 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str178, UC_PROPERTY_INDEX_BIDI_BLOCK_SEPARATOR},
-    {-1},
-#line 163 "./unictype/pr_byname.gperf"
+#line 234 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str179, UC_PROPERTY_INDEX_TERMINAL_PUNCTUATION},
+#line 165 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str180, UC_PROPERTY_INDEX_BIDI_EUR_NUM_SEPARATOR},
-#line 170 "./unictype/pr_byname.gperf"
+#line 172 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str181, UC_PROPERTY_INDEX_BIDI_BLOCK_SEPARATOR},
-#line 114 "./unictype/pr_byname.gperf"
+#line 114 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str182, UC_PROPERTY_INDEX_XID_CONTINUE},
-#line 181 "./unictype/pr_byname.gperf"
+#line 183 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str183, UC_PROPERTY_INDEX_BIDI_PDF},
-#line 59 "./unictype/pr_byname.gperf"
+#line 59 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str184, UC_PROPERTY_INDEX_VARIATION_SELECTOR},
-#line 111 "./unictype/pr_byname.gperf"
+#line 111 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str185, UC_PROPERTY_INDEX_XID_START},
-#line 113 "./unictype/pr_byname.gperf"
+#line 113 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str186, UC_PROPERTY_INDEX_XID_CONTINUE},
-#line 65 "./unictype/pr_byname.gperf"
+#line 65 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str187, UC_PROPERTY_INDEX_UPPERCASE},
-#line 110 "./unictype/pr_byname.gperf"
+#line 110 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str188, UC_PROPERTY_INDEX_XID_START},
-#line 250 "./unictype/pr_byname.gperf"
+#line 252 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str189, UC_PROPERTY_INDEX_EXTENDER},
-#line 226 "./unictype/pr_byname.gperf"
+#line 228 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str190, UC_PROPERTY_INDEX_QUOTATION_MARK},
     {-1},
-#line 112 "./unictype/pr_byname.gperf"
+#line 112 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str192, UC_PROPERTY_INDEX_XID_START},
-#line 130 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str193, UC_PROPERTY_INDEX_JOIN_CONTROL},
-    {-1},
-#line 192 "./unictype/pr_byname.gperf"
+    {-1}, {-1},
+#line 194 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str195, UC_PROPERTY_INDEX_IDEOGRAPHIC},
-#line 155 "./unictype/pr_byname.gperf"
+#line 157 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str196, UC_PROPERTY_INDEX_BIDI_LEFT_TO_RIGHT},
-#line 129 "./unictype/pr_byname.gperf"
+#line 129 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str197, UC_PROPERTY_INDEX_PATTERN_SYNTAX},
-#line 128 "./unictype/pr_byname.gperf"
+#line 128 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str198, UC_PROPERTY_INDEX_PATTERN_SYNTAX},
-#line 204 "./unictype/pr_byname.gperf"
+#line 206 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str199, UC_PROPERTY_INDEX_IDS_TRINARY_OPERATOR},
-    {-1},
-#line 133 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str201, UC_PROPERTY_INDEX_JOIN_CONTROL},
-#line 132 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str202, UC_PROPERTY_INDEX_JOIN_CONTROL},
-    {-1},
-#line 61 "./unictype/pr_byname.gperf"
+    {-1}, {-1}, {-1}, {-1},
+#line 61 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str204, UC_PROPERTY_INDEX_PRIVATE_USE},
-#line 77 "./unictype/pr_byname.gperf"
+#line 77 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str205, UC_PROPERTY_INDEX_CASE_IGNORABLE},
-#line 43 "./unictype/pr_byname.gperf"
+#line 43 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str206, UC_PROPERTY_INDEX_OTHER_ALPHABETIC},
     {-1}, {-1},
-#line 158 "./unictype/pr_byname.gperf"
+#line 160 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str209, UC_PROPERTY_INDEX_BIDI_ARABIC_RIGHT_TO_LEFT},
-#line 157 "./unictype/pr_byname.gperf"
+#line 159 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str210, UC_PROPERTY_INDEX_BIDI_HEBREW_RIGHT_TO_LEFT},
-#line 247 "./unictype/pr_byname.gperf"
+#line 249 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str211, UC_PROPERTY_INDEX_NUMERIC},
     {-1},
-#line 45 "./unictype/pr_byname.gperf"
+#line 45 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str213, UC_PROPERTY_INDEX_NOT_A_CHARACTER},
-#line 210 "./unictype/pr_byname.gperf"
+#line 212 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str214, UC_PROPERTY_INDEX_NON_BREAK},
-#line 82 "./unictype/pr_byname.gperf"
+#line 82 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str215, UC_PROPERTY_INDEX_CHANGES_WHEN_LOWERCASED},
-#line 88 "./unictype/pr_byname.gperf"
+#line 88 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str216, UC_PROPERTY_INDEX_CHANGES_WHEN_TITLECASED},
-#line 154 "./unictype/pr_byname.gperf"
+#line 156 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str217, UC_PROPERTY_INDEX_BIDI_LEFT_TO_RIGHT},
-#line 156 "./unictype/pr_byname.gperf"
+#line 158 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str218, UC_PROPERTY_INDEX_BIDI_HEBREW_RIGHT_TO_LEFT},
-#line 145 "./unictype/pr_byname.gperf"
+#line 145 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str219, UC_PROPERTY_INDEX_OTHER_GRAPHEME_EXTEND},
-#line 144 "./unictype/pr_byname.gperf"
+#line 144 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str220, UC_PROPERTY_INDEX_OTHER_GRAPHEME_EXTEND},
-#line 137 "./unictype/pr_byname.gperf"
+#line 137 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str221, UC_PROPERTY_INDEX_GRAPHEME_BASE},
-#line 136 "./unictype/pr_byname.gperf"
+#line 136 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str222, UC_PROPERTY_INDEX_GRAPHEME_BASE},
-#line 141 "./unictype/pr_byname.gperf"
+#line 141 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str223, UC_PROPERTY_INDEX_GRAPHEME_EXTEND},
-#line 140 "./unictype/pr_byname.gperf"
+#line 140 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str224, UC_PROPERTY_INDEX_GRAPHEME_EXTEND},
-#line 116 "./unictype/pr_byname.gperf"
+#line 116 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str225, UC_PROPERTY_INDEX_ID_COMPAT_MATH_START},
-#line 233 "./unictype/pr_byname.gperf"
+#line 235 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str226, UC_PROPERTY_INDEX_CURRENCY_SYMBOL},
-#line 234 "./unictype/pr_byname.gperf"
+#line 236 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str227, UC_PROPERTY_INDEX_CURRENCY_SYMBOL},
-#line 178 "./unictype/pr_byname.gperf"
+#line 180 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str228, UC_PROPERTY_INDEX_BIDI_BOUNDARY_NEUTRAL},
     {-1},
-#line 220 "./unictype/pr_byname.gperf"
+#line 222 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str230, UC_PROPERTY_INDEX_PUNCTUATION},
-#line 135 "./unictype/pr_byname.gperf"
+#line 135 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str231, UC_PROPERTY_INDEX_GRAPHEME_BASE},
-#line 134 "./unictype/pr_byname.gperf"
+#line 134 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str232, UC_PROPERTY_INDEX_GRAPHEME_BASE},
     {-1}, {-1}, {-1}, {-1},
-#line 139 "./unictype/pr_byname.gperf"
+#line 139 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str237, UC_PROPERTY_INDEX_GRAPHEME_EXTEND},
     {-1}, {-1},
-#line 190 "./unictype/pr_byname.gperf"
+#line 192 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str240, UC_PROPERTY_INDEX_ASCII_HEX_DIGIT},
-#line 214 "./unictype/pr_byname.gperf"
+#line 216 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str241, UC_PROPERTY_INDEX_FORMAT_CONTROL},
-#line 252 "./unictype/pr_byname.gperf"
+#line 254 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str242, UC_PROPERTY_INDEX_IGNORABLE_CONTROL},
-#line 253 "./unictype/pr_byname.gperf"
+#line 255 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str243, UC_PROPERTY_INDEX_IGNORABLE_CONTROL},
     {-1}, {-1},
-#line 159 "./unictype/pr_byname.gperf"
+#line 161 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str246, UC_PROPERTY_INDEX_BIDI_ARABIC_RIGHT_TO_LEFT},
-#line 219 "./unictype/pr_byname.gperf"
+#line 221 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str247, UC_PROPERTY_INDEX_HYPHEN},
-#line 63 "./unictype/pr_byname.gperf"
+#line 63 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str248, UC_PROPERTY_INDEX_UNASSIGNED_CODE_VALUE},
     {-1}, {-1},
-#line 115 "./unictype/pr_byname.gperf"
+#line 115 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str251, UC_PROPERTY_INDEX_XID_CONTINUE},
-#line 119 "./unictype/pr_byname.gperf"
+#line 119 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str252, UC_PROPERTY_INDEX_ID_COMPAT_MATH_CONTINUE},
     {-1},
-#line 184 "./unictype/pr_byname.gperf"
+#line 186 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str254, UC_PROPERTY_INDEX_BIDI_OTHER_NEUTRAL},
-#line 47 "./unictype/pr_byname.gperf"
+#line 47 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str255, UC_PROPERTY_INDEX_DEFAULT_IGNORABLE_CODE_POINT},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-#line 56 "./unictype/pr_byname.gperf"
+#line 56 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str264, UC_PROPERTY_INDEX_LOGICAL_ORDER_EXCEPTION},
-#line 224 "./unictype/pr_byname.gperf"
+#line 226 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str265, UC_PROPERTY_INDEX_PARAGRAPH_SEPARATOR},
-#line 85 "./unictype/pr_byname.gperf"
+#line 85 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str266, UC_PROPERTY_INDEX_CHANGES_WHEN_UPPERCASED},
-#line 64 "./unictype/pr_byname.gperf"
+#line 64 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str267, UC_PROPERTY_INDEX_UNASSIGNED_CODE_VALUE},
-    {-1}, {-1}, {-1},
-#line 169 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str271, UC_PROPERTY_INDEX_BIDI_COMMON_SEPARATOR},
-#line 240 "./unictype/pr_byname.gperf"
+    {-1}, {-1}, {-1}, {-1},
+#line 242 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str272, UC_PROPERTY_INDEX_PAIRED_PUNCTUATION},
-#line 168 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str273, UC_PROPERTY_INDEX_BIDI_COMMON_SEPARATOR},
-    {-1},
-#line 227 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str275, UC_PROPERTY_INDEX_QUOTATION_MARK},
-#line 55 "./unictype/pr_byname.gperf"
+    {-1}, {-1}, {-1},
+#line 55 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str276, UC_PROPERTY_INDEX_LOGICAL_ORDER_EXCEPTION},
     {-1}, {-1},
-#line 211 "./unictype/pr_byname.gperf"
+#line 213 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str279, UC_PROPERTY_INDEX_NON_BREAK},
     {-1},
-#line 238 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str281, UC_PROPERTY_INDEX_OTHER_MATH},
-    {-1}, {-1},
-#line 188 "./unictype/pr_byname.gperf"
+#line 171 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str281, UC_PROPERTY_INDEX_BIDI_COMMON_SEPARATOR},
+    {-1},
+#line 170 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str283, UC_PROPERTY_INDEX_BIDI_COMMON_SEPARATOR},
+#line 190 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str284, UC_PROPERTY_INDEX_HEX_DIGIT},
-    {-1}, {-1}, {-1},
-#line 223 "./unictype/pr_byname.gperf"
+#line 229 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str285, UC_PROPERTY_INDEX_QUOTATION_MARK},
+    {-1}, {-1},
+#line 225 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str288, UC_PROPERTY_INDEX_PARAGRAPH_SEPARATOR},
     {-1},
-#line 38 "./unictype/pr_byname.gperf"
+#line 38 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str290, UC_PROPERTY_INDEX_WHITE_SPACE},
-    {-1}, {-1},
-#line 225 "./unictype/pr_byname.gperf"
+#line 240 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str291, UC_PROPERTY_INDEX_OTHER_MATH},
+    {-1},
+#line 227 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str293, UC_PROPERTY_INDEX_QUOTATION_MARK},
-#line 195 "./unictype/pr_byname.gperf"
+#line 197 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str294, UC_PROPERTY_INDEX_UNIFIED_IDEOGRAPH},
     {-1}, {-1},
-#line 138 "./unictype/pr_byname.gperf"
+#line 138 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str297, UC_PROPERTY_INDEX_GRAPHEME_EXTEND},
-    {-1}, {-1}, {-1}, {-1},
-#line 165 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str302, UC_PROPERTY_INDEX_BIDI_EUR_NUM_TERMINATOR},
-    {-1}, {-1},
-#line 217 "./unictype/pr_byname.gperf"
+    {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
+#line 219 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str305, UC_PROPERTY_INDEX_PREPENDED_CONCATENATION_MARK},
     {-1}, {-1}, {-1}, {-1}, {-1},
-#line 180 "./unictype/pr_byname.gperf"
+#line 182 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str311, UC_PROPERTY_INDEX_BIDI_PDF},
-#line 235 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str312, UC_PROPERTY_INDEX_MATH},
+#line 167 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str312, UC_PROPERTY_INDEX_BIDI_EUR_NUM_TERMINATOR},
     {-1}, {-1}, {-1},
-#line 172 "./unictype/pr_byname.gperf"
+#line 174 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str316, UC_PROPERTY_INDEX_BIDI_SEGMENT_SEPARATOR},
-#line 191 "./unictype/pr_byname.gperf"
+#line 193 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str317, UC_PROPERTY_INDEX_ASCII_HEX_DIGIT},
     {-1},
-#line 149 "./unictype/pr_byname.gperf"
+#line 149 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str319, UC_PROPERTY_INDEX_GRAPHEME_LINK},
-#line 148 "./unictype/pr_byname.gperf"
+#line 148 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str320, UC_PROPERTY_INDEX_GRAPHEME_LINK},
-    {-1}, {-1}, {-1}, {-1},
-#line 127 "./unictype/pr_byname.gperf"
+    {-1},
+#line 237 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str322, UC_PROPERTY_INDEX_MATH},
+    {-1}, {-1},
+#line 127 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str325, UC_PROPERTY_INDEX_PATTERN_SYNTAX},
     {-1}, {-1},
-#line 86 "./unictype/pr_byname.gperf"
+#line 86 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str328, UC_PROPERTY_INDEX_CHANGES_WHEN_TITLECASED},
-#line 147 "./unictype/pr_byname.gperf"
+#line 147 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str329, UC_PROPERTY_INDEX_GRAPHEME_LINK},
-#line 146 "./unictype/pr_byname.gperf"
+#line 146 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str330, UC_PROPERTY_INDEX_GRAPHEME_LINK},
-#line 173 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str331, UC_PROPERTY_INDEX_BIDI_SEGMENT_SEPARATOR},
-#line 80 "./unictype/pr_byname.gperf"
+    {-1},
+#line 80 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str332, UC_PROPERTY_INDEX_CHANGES_WHEN_LOWERCASED},
     {-1}, {-1}, {-1}, {-1},
-#line 91 "./unictype/pr_byname.gperf"
+#line 91 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str337, UC_PROPERTY_INDEX_CHANGES_WHEN_CASEFOLDED},
-    {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-#line 37 "./unictype/pr_byname.gperf"
+    {-1}, {-1}, {-1},
+#line 175 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str341, UC_PROPERTY_INDEX_BIDI_SEGMENT_SEPARATOR},
+    {-1}, {-1}, {-1}, {-1}, {-1},
+#line 37 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str347, UC_PROPERTY_INDEX_WHITE_SPACE},
     {-1}, {-1}, {-1}, {-1},
-#line 194 "./unictype/pr_byname.gperf"
+#line 196 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str352, UC_PROPERTY_INDEX_UNIFIED_IDEOGRAPH},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-#line 243 "./unictype/pr_byname.gperf"
+#line 245 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str362, UC_PROPERTY_INDEX_COMBINING},
-#line 123 "./unictype/pr_byname.gperf"
+#line 123 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str363, UC_PROPERTY_INDEX_PATTERN_WHITE_SPACE},
-#line 94 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str364, UC_PROPERTY_INDEX_CHANGES_WHEN_CASEMAPPED},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-    {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-#line 90 "./unictype/pr_byname.gperf"
+    {-1},
+#line 94 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str374, UC_PROPERTY_INDEX_CHANGES_WHEN_CASEMAPPED},
+    {-1}, {-1}, {-1}, {-1}, {-1},
+#line 90 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str380, UC_PROPERTY_INDEX_CHANGES_WHEN_CASEFOLDED},
     {-1},
-#line 216 "./unictype/pr_byname.gperf"
+#line 218 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str382, UC_PROPERTY_INDEX_PREPENDED_CONCATENATION_MARK},
-#line 83 "./unictype/pr_byname.gperf"
+#line 83 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str383, UC_PROPERTY_INDEX_CHANGES_WHEN_UPPERCASED},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-#line 87 "./unictype/pr_byname.gperf"
+#line 87 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str392, UC_PROPERTY_INDEX_CHANGES_WHEN_TITLECASED},
-#line 176 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str393, UC_PROPERTY_INDEX_BIDI_NON_SPACING_MARK},
-    {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-#line 239 "./unictype/pr_byname.gperf"
+    {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
+#line 241 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str400, UC_PROPERTY_INDEX_PAIRED_PUNCTUATION},
-    {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-    {-1},
-#line 122 "./unictype/pr_byname.gperf"
+    {-1}, {-1},
+#line 178 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str403, UC_PROPERTY_INDEX_BIDI_NON_SPACING_MARK},
+    {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
+#line 122 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str411, UC_PROPERTY_INDEX_PATTERN_WHITE_SPACE},
     {-1},
-#line 51 "./unictype/pr_byname.gperf"
+#line 51 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str413, UC_PROPERTY_INDEX_OTHER_DEFAULT_IGNORABLE_CODE_POINT},
-#line 182 "./unictype/pr_byname.gperf"
+#line 184 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str414, UC_PROPERTY_INDEX_BIDI_EMBEDDING_OR_OVERRIDE},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
@@ -1074,33 +1076,37 @@ static const struct named_property properties[] =
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-#line 93 "./unictype/pr_byname.gperf"
+#line 93 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str466, UC_PROPERTY_INDEX_CHANGES_WHEN_CASEMAPPED},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1},
-#line 84 "./unictype/pr_byname.gperf"
+#line 84 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str477, UC_PROPERTY_INDEX_CHANGES_WHEN_UPPERCASED},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1}, {-1},
-#line 177 "./unictype/pr_byname.gperf"
+#line 179 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str498, UC_PROPERTY_INDEX_BIDI_NON_SPACING_MARK},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-#line 81 "./unictype/pr_byname.gperf"
+#line 81 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str507, UC_PROPERTY_INDEX_CHANGES_WHEN_LOWERCASED},
+#line 150 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str508, UC_PROPERTY_INDEX_MODIFIER_COMBINING_MARK},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-    {-1}, {-1},
-#line 89 "./unictype/pr_byname.gperf"
+#line 151 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str527, UC_PROPERTY_INDEX_MODIFIER_COMBINING_MARK},
+#line 89 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str528, UC_PROPERTY_INDEX_CHANGES_WHEN_CASEFOLDED},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
     {-1},
-#line 126 "./unictype/pr_byname.gperf"
+#line 126 "unictype/pr_byname.gperf"
     {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str548, UC_PROPERTY_INDEX_PATTERN_SYNTAX},
-    {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
-#line 92 "./unictype/pr_byname.gperf"
-    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str555, UC_PROPERTY_INDEX_CHANGES_WHEN_CASEMAPPED}
+    {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
+    {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
+#line 92 "unictype/pr_byname.gperf"
+    {(int)(size_t)&((struct properties_stringpool_t *)0)->properties_stringpool_str565, UC_PROPERTY_INDEX_CHANGES_WHEN_CASEMAPPED}
   };
 
 static const struct named_property *

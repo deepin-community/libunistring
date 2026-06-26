@@ -18,7 +18,7 @@
 
 #include <config.h>
 
-#include "glthread/lock.h"
+#include "glthread/once.h"
 
 #include "macros.h"
 
@@ -39,5 +39,5 @@ main ()
 
   ASSERT (a == 42);
 
-  return 0;
+  return test_exit_status;
 }

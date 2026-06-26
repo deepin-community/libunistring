@@ -331,10 +331,12 @@ main (int argc, char *argv[])
 
   if (result == 77)
     {
+      if (test_exit_status != EXIT_SUCCESS)
+        return test_exit_status;
       fprintf (stderr, "Skipping test: found no locale with codepage %d\n",
                codepage);
     }
-  return result;
+  return (result ? result : test_exit_status);
 }
 
 #else
