@@ -2513,6 +2513,7 @@ two contexts of right-joining characters.
  -- Constant: int UC_JOINING_GROUP_HANIFI_ROHINGYA_KINNA_YA
  -- Constant: int UC_JOINING_GROUP_THIN_YEH
  -- Constant: int UC_JOINING_GROUP_VERTICAL_TAIL
+ -- Constant: int UC_JOINING_GROUP_KASHMIRI_YEH
 
    The following functions implement the association between a joining
 group and its name.
@@ -2619,6 +2620,7 @@ File: libunistring.info,  Node: Properties as objects,  Next: Properties as func
  -- Constant: uc_property_t UC_PROPERTY_GRAPHEME_EXTEND
  -- Constant: uc_property_t UC_PROPERTY_OTHER_GRAPHEME_EXTEND
  -- Constant: uc_property_t UC_PROPERTY_GRAPHEME_LINK
+ -- Constant: uc_property_t UC_PROPERTY_MODIFIER_COMBINING_MARK
 
    The following properties relate to bidirectional reordering.
 
@@ -2778,6 +2780,7 @@ File: libunistring.info,  Node: Properties as functions,  Prev: Properties as ob
  -- Function: bool uc_is_property_grapheme_extend (ucs4_t UC)
  -- Function: bool uc_is_property_other_grapheme_extend (ucs4_t UC)
  -- Function: bool uc_is_property_grapheme_link (ucs4_t UC)
+ -- Function: bool uc_is_property_modifier_combining_mark (ucs4_t UC)
 
    The following properties relate to bidirectional reordering.
 
@@ -6659,45 +6662,45 @@ Index
 * uc_is_print:                           Classifications like in ISO C.
                                                               (line  40)
 * uc_is_property:                        Properties as objects.
-                                                              (line 164)
+                                                              (line 165)
 * uc_is_property_alphabetic:             Properties as functions.
                                                               (line   9)
 * uc_is_property_ascii_hex_digit:        Properties as functions.
-                                                              (line  82)
+                                                              (line  83)
 * uc_is_property_bidi_arabic_digit:      Properties as functions.
-                                                              (line  68)
-* uc_is_property_bidi_arabic_right_to_left: Properties as functions.
-                                                              (line  64)
-* uc_is_property_bidi_block_separator:   Properties as functions.
-                                                              (line  70)
-* uc_is_property_bidi_boundary_neutral:  Properties as functions.
-                                                              (line  74)
-* uc_is_property_bidi_common_separator:  Properties as functions.
                                                               (line  69)
-* uc_is_property_bidi_control:           Properties as functions.
-                                                              (line  61)
-* uc_is_property_bidi_embedding_or_override: Properties as functions.
-                                                              (line  76)
-* uc_is_property_bidi_european_digit:    Properties as functions.
+* uc_is_property_bidi_arabic_right_to_left: Properties as functions.
                                                               (line  65)
-* uc_is_property_bidi_eur_num_separator: Properties as functions.
-                                                              (line  66)
-* uc_is_property_bidi_eur_num_terminator: Properties as functions.
-                                                              (line  67)
-* uc_is_property_bidi_hebrew_right_to_left: Properties as functions.
-                                                              (line  63)
-* uc_is_property_bidi_left_to_right:     Properties as functions.
-                                                              (line  62)
-* uc_is_property_bidi_non_spacing_mark:  Properties as functions.
-                                                              (line  73)
-* uc_is_property_bidi_other_neutral:     Properties as functions.
-                                                              (line  77)
-* uc_is_property_bidi_pdf:               Properties as functions.
-                                                              (line  75)
-* uc_is_property_bidi_segment_separator: Properties as functions.
+* uc_is_property_bidi_block_separator:   Properties as functions.
                                                               (line  71)
-* uc_is_property_bidi_whitespace:        Properties as functions.
+* uc_is_property_bidi_boundary_neutral:  Properties as functions.
+                                                              (line  75)
+* uc_is_property_bidi_common_separator:  Properties as functions.
+                                                              (line  70)
+* uc_is_property_bidi_control:           Properties as functions.
+                                                              (line  62)
+* uc_is_property_bidi_embedding_or_override: Properties as functions.
+                                                              (line  77)
+* uc_is_property_bidi_european_digit:    Properties as functions.
+                                                              (line  66)
+* uc_is_property_bidi_eur_num_separator: Properties as functions.
+                                                              (line  67)
+* uc_is_property_bidi_eur_num_terminator: Properties as functions.
+                                                              (line  68)
+* uc_is_property_bidi_hebrew_right_to_left: Properties as functions.
+                                                              (line  64)
+* uc_is_property_bidi_left_to_right:     Properties as functions.
+                                                              (line  63)
+* uc_is_property_bidi_non_spacing_mark:  Properties as functions.
+                                                              (line  74)
+* uc_is_property_bidi_other_neutral:     Properties as functions.
+                                                              (line  78)
+* uc_is_property_bidi_pdf:               Properties as functions.
+                                                              (line  76)
+* uc_is_property_bidi_segment_separator: Properties as functions.
                                                               (line  72)
+* uc_is_property_bidi_whitespace:        Properties as functions.
+                                                              (line  73)
 * uc_is_property_cased:                  Properties as functions.
                                                               (line  29)
 * uc_is_property_case_ignorable:         Properties as functions.
@@ -6713,37 +6716,37 @@ Index
 * uc_is_property_changes_when_uppercased: Properties as functions.
                                                               (line  32)
 * uc_is_property_combining:              Properties as functions.
-                                                              (line 124)
-* uc_is_property_composite:              Properties as functions.
                                                               (line 125)
-* uc_is_property_currency_symbol:        Properties as functions.
-                                                              (line 119)
-* uc_is_property_dash:                   Properties as functions.
-                                                              (line 111)
-* uc_is_property_decimal_digit:          Properties as functions.
+* uc_is_property_composite:              Properties as functions.
                                                               (line 126)
+* uc_is_property_currency_symbol:        Properties as functions.
+                                                              (line 120)
+* uc_is_property_dash:                   Properties as functions.
+                                                              (line 112)
+* uc_is_property_decimal_digit:          Properties as functions.
+                                                              (line 127)
 * uc_is_property_default_ignorable_code_point: Properties as functions.
                                                               (line  12)
 * uc_is_property_deprecated:             Properties as functions.
                                                               (line  16)
 * uc_is_property_diacritic:              Properties as functions.
-                                                              (line 128)
-* uc_is_property_emoji:                  Properties as functions.
-                                                              (line  95)
-* uc_is_property_emoji_component:        Properties as functions.
-                                                              (line  99)
-* uc_is_property_emoji_modifier:         Properties as functions.
-                                                              (line  97)
-* uc_is_property_emoji_modifier_base:    Properties as functions.
-                                                              (line  98)
-* uc_is_property_emoji_presentation:     Properties as functions.
-                                                              (line  96)
-* uc_is_property_extended_pictographic:  Properties as functions.
-                                                              (line 100)
-* uc_is_property_extender:               Properties as functions.
                                                               (line 129)
+* uc_is_property_emoji:                  Properties as functions.
+                                                              (line  96)
+* uc_is_property_emoji_component:        Properties as functions.
+                                                              (line 100)
+* uc_is_property_emoji_modifier:         Properties as functions.
+                                                              (line  98)
+* uc_is_property_emoji_modifier_base:    Properties as functions.
+                                                              (line  99)
+* uc_is_property_emoji_presentation:     Properties as functions.
+                                                              (line  97)
+* uc_is_property_extended_pictographic:  Properties as functions.
+                                                              (line 101)
+* uc_is_property_extender:               Properties as functions.
+                                                              (line 130)
 * uc_is_property_format_control:         Properties as functions.
-                                                              (line 108)
+                                                              (line 109)
 * uc_is_property_grapheme_base:          Properties as functions.
                                                               (line  54)
 * uc_is_property_grapheme_extend:        Properties as functions.
@@ -6751,17 +6754,17 @@ Index
 * uc_is_property_grapheme_link:          Properties as functions.
                                                               (line  57)
 * uc_is_property_hex_digit:              Properties as functions.
-                                                              (line  81)
+                                                              (line  82)
 * uc_is_property_hyphen:                 Properties as functions.
-                                                              (line 112)
+                                                              (line 113)
 * uc_is_property_ideographic:            Properties as functions.
-                                                              (line  86)
+                                                              (line  87)
 * uc_is_property_ids_binary_operator:    Properties as functions.
-                                                              (line  90)
-* uc_is_property_ids_trinary_operator:   Properties as functions.
                                                               (line  91)
+* uc_is_property_ids_trinary_operator:   Properties as functions.
+                                                              (line  92)
 * uc_is_property_ids_unary_operator:     Properties as functions.
-                                                              (line  89)
+                                                              (line  90)
 * uc_is_property_id_compat_math_continue: Properties as functions.
                                                               (line  47)
 * uc_is_property_id_compat_math_start:   Properties as functions.
@@ -6771,27 +6774,29 @@ Index
 * uc_is_property_id_start:               Properties as functions.
                                                               (line  40)
 * uc_is_property_ignorable_control:      Properties as functions.
-                                                              (line 130)
+                                                              (line 131)
 * uc_is_property_iso_control:            Properties as functions.
-                                                              (line 107)
+                                                              (line 108)
 * uc_is_property_join_control:           Properties as functions.
                                                               (line  53)
 * uc_is_property_left_of_pair:           Properties as functions.
-                                                              (line 123)
+                                                              (line 124)
 * uc_is_property_line_separator:         Properties as functions.
-                                                              (line 114)
+                                                              (line 115)
 * uc_is_property_logical_order_exception: Properties as functions.
                                                               (line  17)
 * uc_is_property_lowercase:              Properties as functions.
                                                               (line  26)
 * uc_is_property_math:                   Properties as functions.
-                                                              (line 120)
+                                                              (line 121)
+* uc_is_property_modifier_combining_mark: Properties as functions.
+                                                              (line  58)
 * uc_is_property_non_break:              Properties as functions.
-                                                              (line 106)
+                                                              (line 107)
 * uc_is_property_not_a_character:        Properties as functions.
                                                               (line  11)
 * uc_is_property_numeric:                Properties as functions.
-                                                              (line 127)
+                                                              (line 128)
 * uc_is_property_other_alphabetic:       Properties as functions.
                                                               (line  10)
 * uc_is_property_other_default_ignorable_code_point: Properties as functions.
@@ -6805,43 +6810,43 @@ Index
 * uc_is_property_other_lowercase:        Properties as functions.
                                                               (line  27)
 * uc_is_property_other_math:             Properties as functions.
-                                                              (line 121)
+                                                              (line 122)
 * uc_is_property_other_uppercase:        Properties as functions.
                                                               (line  25)
 * uc_is_property_paired_punctuation:     Properties as functions.
-                                                              (line 122)
+                                                              (line 123)
 * uc_is_property_paragraph_separator:    Properties as functions.
-                                                              (line 115)
+                                                              (line 116)
 * uc_is_property_pattern_syntax:         Properties as functions.
                                                               (line  49)
 * uc_is_property_pattern_white_space:    Properties as functions.
                                                               (line  48)
 * uc_is_property_prepended_concatenation_mark: Properties as functions.
-                                                              (line 109)
+                                                              (line 110)
 * uc_is_property_private_use:            Properties as functions.
                                                               (line  19)
 * uc_is_property_punctuation:            Properties as functions.
-                                                              (line 113)
+                                                              (line 114)
 * uc_is_property_quotation_mark:         Properties as functions.
-                                                              (line 116)
-* uc_is_property_radical:                Properties as functions.
-                                                              (line  88)
-* uc_is_property_regional_indicator:     Properties as functions.
-                                                              (line 131)
-* uc_is_property_sentence_terminal:      Properties as functions.
                                                               (line 117)
+* uc_is_property_radical:                Properties as functions.
+                                                              (line  89)
+* uc_is_property_regional_indicator:     Properties as functions.
+                                                              (line 132)
+* uc_is_property_sentence_terminal:      Properties as functions.
+                                                              (line 118)
 * uc_is_property_soft_dotted:            Properties as functions.
                                                               (line  36)
 * uc_is_property_space:                  Properties as functions.
-                                                              (line 105)
+                                                              (line 106)
 * uc_is_property_terminal_punctuation:   Properties as functions.
-                                                              (line 118)
+                                                              (line 119)
 * uc_is_property_titlecase:              Properties as functions.
                                                               (line  28)
 * uc_is_property_unassigned_code_value:  Properties as functions.
                                                               (line  20)
 * uc_is_property_unified_ideograph:      Properties as functions.
-                                                              (line  87)
+                                                              (line  88)
 * uc_is_property_uppercase:              Properties as functions.
                                                               (line  24)
 * uc_is_property_variation_selector:     Properties as functions.
@@ -6853,7 +6858,7 @@ Index
 * uc_is_property_xid_start:              Properties as functions.
                                                               (line  44)
 * uc_is_property_zero_width:             Properties as functions.
-                                                              (line 104)
+                                                              (line 105)
 * uc_is_punct:                           Classifications like in ISO C.
                                                               (line  43)
 * uc_is_script:                          Scripts.             (line  30)
@@ -6865,9 +6870,9 @@ Index
                                                               (line  59)
 * uc_java_ident_category:                ISO C and Java syntax.
                                                               (line  42)
-* uc_joining_group:                      Joining group.       (line 132)
-* uc_joining_group_byname:               Joining group.       (line 123)
-* uc_joining_group_name:                 Joining group.       (line 120)
+* uc_joining_group:                      Joining group.       (line 133)
+* uc_joining_group_byname:               Joining group.       (line 124)
+* uc_joining_group_name:                 Joining group.       (line 121)
 * uc_joining_type:                       Joining type.        (line  54)
 * uc_joining_type_byname:                Joining type.        (line  45)
 * uc_joining_type_long_name:             Joining type.        (line  42)
@@ -6877,9 +6882,9 @@ Index
 * uc_mirror_char:                        Mirrored character.  (line  13)
 * uc_numeric_value:                      Numeric value.       (line  21)
 * uc_property_byname:                    Properties as objects.
-                                                              (line 142)
+                                                              (line 143)
 * uc_property_is_valid:                  Properties as objects.
-                                                              (line 157)
+                                                              (line 158)
 * uc_property_t:                         Properties as objects.
                                                               (line   8)
 * uc_script:                             Scripts.             (line  19)
@@ -7035,50 +7040,50 @@ Node: Mirrored character95296
 Node: Arabic shaping96510
 Node: Joining type96983
 Node: Joining group99133
-Node: Properties104945
-Node: Properties as objects105645
-Node: Properties as functions113379
-Node: Other attributes120183
-Node: Indic conjunct break120438
-Node: Scripts121729
-Node: Blocks123140
-Node: ISO C and Java syntax124483
-Node: Classifications like in ISO C126201
-Node: uniwidth.h129013
-Node: unigbrk.h131059
-Node: Grapheme cluster breaks in a string132553
-Node: Grapheme cluster break property135742
-Node: uniwbrk.h138068
-Node: Word breaks in a string138606
-Node: Word break property139698
-Node: unilbrk.h141026
-Node: uninorm.h145578
-Node: Decomposition of characters146215
-Node: Composition of characters149996
-Node: Normalization of strings150709
-Node: Normalizing comparisons152882
-Node: Normalization of streams155380
-Node: unicase.h157505
-Node: Case mappings of characters158194
-Node: Case mappings of strings160343
-Node: Case mappings of substrings163981
-Node: Case insensitive comparison171251
-Node: Case detection177089
-Node: uniregex.h180403
-Node: Using the library180630
-Node: Installation181041
-Node: Compiler options181529
-Node: Include files183169
-Node: Autoconf macro184809
-Node: Reporting problems186450
-Node: More functionality187260
-Node: The wchar_t mess187712
-Node: The char32_t problem190139
-Node: Licenses192514
-Node: GNU GPL194987
-Node: GNU LGPL232736
-Node: GNU FDL241220
-Node: Index266531
+Node: Properties104993
+Node: Properties as objects105693
+Node: Properties as functions113491
+Node: Other attributes120365
+Node: Indic conjunct break120620
+Node: Scripts121911
+Node: Blocks123322
+Node: ISO C and Java syntax124665
+Node: Classifications like in ISO C126383
+Node: uniwidth.h129195
+Node: unigbrk.h131241
+Node: Grapheme cluster breaks in a string132735
+Node: Grapheme cluster break property135924
+Node: uniwbrk.h138250
+Node: Word breaks in a string138788
+Node: Word break property139880
+Node: unilbrk.h141208
+Node: uninorm.h145760
+Node: Decomposition of characters146397
+Node: Composition of characters150178
+Node: Normalization of strings150891
+Node: Normalizing comparisons153064
+Node: Normalization of streams155562
+Node: unicase.h157687
+Node: Case mappings of characters158376
+Node: Case mappings of strings160525
+Node: Case mappings of substrings164163
+Node: Case insensitive comparison171433
+Node: Case detection177271
+Node: uniregex.h180585
+Node: Using the library180812
+Node: Installation181223
+Node: Compiler options181711
+Node: Include files183351
+Node: Autoconf macro184991
+Node: Reporting problems186632
+Node: More functionality187442
+Node: The wchar_t mess187894
+Node: The char32_t problem190321
+Node: Licenses192696
+Node: GNU GPL195169
+Node: GNU LGPL232918
+Node: GNU FDL241402
+Node: Index266713
 
 End Tag Table
 

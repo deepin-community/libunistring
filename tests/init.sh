@@ -338,13 +338,17 @@ mktempd_ ()
   esac
 
   case $template_ in
+  -*) fail_ \
+       "invalid template: $template_ (must not begin with '-')";;
   *XXXX) ;;
   *) fail_ \
        "invalid template: $template_ (must have a suffix of at least 4 X's)";;
   esac
 
-  # First, try to use mktemp.
-  d=`unset TMPDIR; { mktemp -d -t -p "$destdir_" "$template_"; } 2>/dev/null` &&
+  # First, try GNU mktemp, where -t has no option-argument.
+  # Put -t last, as GNU mktemp allows, so that the incompatible NetBSD mktemp
+  # (where -t has an option-argument) fails instead of creating a junk dir.
+  d=`unset TMPDIR; { mktemp -d -p "$destdir_" "$template_" -t; } 2>/dev/null` &&
 
   # The resulting name must be in the specified directory.
   case $d in "$destdir_slash_"*) :;; *) false;; esac &&
@@ -591,9 +595,10 @@ fi
 # I.e., just doing `command ... &&fail=1` will not catch
 # a segfault in command for example.  With this helper you
 # instead check an explicit exit code like
-#   returns_ 1 command ... || fail
+#   returns_ 1 command ... || fail=1
 returns_ () {
   # Disable tracing so it doesn't interfere with stderr of the wrapped command
+  { local is_tracing=`{ :; } 2>&1`; } 2>/dev/null
   { set +x; } 2>/dev/null
 
   local exp_exit="$1"
@@ -601,7 +606,8 @@ returns_ () {
   "$@"
   test $? -eq $exp_exit && ret_=0 || ret_=1
 
-  if test "$VERBOSE" = yes && test "$gl_set_x_corrupts_stderr_" = false; then
+  # Restore tracing if it was enabled.
+  if test -n "$is_tracing"; then
     set -x
   fi
   { return $ret_; } 2>/dev/null

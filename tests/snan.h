@@ -1,17 +1,17 @@
 /* Macros for signalling not-a-number.
    Copyright (C) 2007-2024 Free Software Foundation, Inc.
 
-   This program is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
+   This file is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as
+   published by the Free Software Foundation; either version 2.1 of the
+   License, or (at your option) any later version.
 
-   This program is distributed in the hope that it will be useful,
+   This file is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
+   GNU Lesser General Public License for more details.
 
-   You should have received a copy of the GNU General Public License
+   You should have received a copy of the GNU Lesser General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 #ifndef _SNAN_H
@@ -22,6 +22,10 @@
 #include <math.h>
 
 #include "nan.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 
 /* The bit that distinguishes a quiet NaN from a signalling NaN is, according to
@@ -226,6 +230,11 @@ construct_memory_SNaNl (long double quiet_value)
     m.word[LDBL_EXPBIT0_WORD + (LDBL_EXPBIT0_WORD < HNWORDS / 2 ? 1 : - 1)]
       ^= (unsigned int) 1 << (sizeof (unsigned int) * CHAR_BIT - 2);
    #endif
+  #elif (defined __m68k__ && LDBL_MANT_DIG == 64) && !HAVE_SAME_LONG_DOUBLE_AS_DOUBLE
+  /* In this representation, there is a 16-bits gap between the exponent and
+     the mantissa, and the leading 1 of the mantissa is explicitly stored.  */
+    m.word[LDBL_EXPBIT0_WORD + 1]
+      ^= (unsigned int) 1 << (sizeof (unsigned int) * CHAR_BIT - 2);
   #else
   /* In this representation, the leading 1 of the mantissa is implicit.  */
    #if LDBL_EXPBIT0_BIT > 0
@@ -272,5 +281,9 @@ SNaNl ()
 
 #undef NWORDS
 
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _SNAN_H */

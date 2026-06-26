@@ -36,7 +36,7 @@
 #endif
 
 /* Suppress GCC false positive.  */
-#if __GNUC__ >= 12
+#if _GL_GNUC_PREREQ (12, 0)
 # pragma GCC diagnostic ignored "-Wanalyzer-use-of-uninitialized-value"
 #endif
 
@@ -838,5 +838,5 @@ main ()
   test_locale_name_environ ();
   test_locale_name_default ();
 
-  return 0;
+  return test_exit_status;
 }

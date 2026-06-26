@@ -920,6 +920,7 @@ The joining group has the following possible values:
 @deftypevrx Constant int UC_JOINING_GROUP_HANIFI_ROHINGYA_KINNA_YA
 @deftypevrx Constant int UC_JOINING_GROUP_THIN_YEH
 @deftypevrx Constant int UC_JOINING_GROUP_VERTICAL_TAIL
+@deftypevrx Constant int UC_JOINING_GROUP_KASHMIRI_YEH
 @end deftypevr
 
 The following functions implement the association between a joining group
@@ -1027,6 +1028,7 @@ The following properties have an influence on shaping and rendering.
 @deftypevrx Constant uc_property_t UC_PROPERTY_GRAPHEME_EXTEND
 @deftypevrx Constant uc_property_t UC_PROPERTY_OTHER_GRAPHEME_EXTEND
 @deftypevrx Constant uc_property_t UC_PROPERTY_GRAPHEME_LINK
+@deftypevrx Constant uc_property_t UC_PROPERTY_MODIFIER_COMBINING_MARK
 @end deftypevr
 
 The following properties relate to bidirectional reordering.
@@ -1191,6 +1193,7 @@ The following properties have an influence on shaping and rendering.
 @deftypefunx bool uc_is_property_grapheme_extend (ucs4_t@tie{}@var{uc})
 @deftypefunx bool uc_is_property_other_grapheme_extend (ucs4_t@tie{}@var{uc})
 @deftypefunx bool uc_is_property_grapheme_link (ucs4_t@tie{}@var{uc})
+@deftypefunx bool uc_is_property_modifier_combining_mark (ucs4_t@tie{}@var{uc})
 @end deftypefun
 
 The following properties relate to bidirectional reordering.

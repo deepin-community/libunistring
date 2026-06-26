@@ -99,6 +99,7 @@ UC_PROPERTY_LINE_SEPARATOR
 UC_PROPERTY_LOGICAL_ORDER_EXCEPTION
 UC_PROPERTY_LOWERCASE
 UC_PROPERTY_MATH
+UC_PROPERTY_MODIFIER_COMBINING_MARK
 UC_PROPERTY_NON_BREAK
 UC_PROPERTY_NOT_A_CHARACTER
 UC_PROPERTY_NUMERIC
@@ -550,6 +551,7 @@ uc_is_property_line_separator
 uc_is_property_logical_order_exception
 uc_is_property_lowercase
 uc_is_property_math
+uc_is_property_modifier_combining_mark
 uc_is_property_non_break
 uc_is_property_not_a_character
 uc_is_property_numeric

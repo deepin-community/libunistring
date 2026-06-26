@@ -50,17 +50,6 @@ iconveh_open (const char *to_codeset, const char *from_codeset, iconveh_t *cdp)
   iconv_t cd1;
   iconv_t cd2;
 
-  /* Avoid glibc-2.1 bug with EUC-KR.  */
-# if ((__GLIBC__ == 2 && __GLIBC_MINOR__ <= 1) && !defined __UCLIBC__) \
-     && !defined _LIBICONV_VERSION
-  if (c_strcasecmp (from_codeset, "EUC-KR") == 0
-      || c_strcasecmp (to_codeset, "EUC-KR") == 0)
-    {
-      errno = EINVAL;
-      return -1;
-    }
-# endif
-
   cd = iconv_open (to_codeset, from_codeset);
 
   if (STRCASEEQ (from_codeset, "UTF-8", 'U','T','F','-','8',0,0,0,0))
@@ -406,13 +395,8 @@ mem_cd_iconveh_internal (const char *src, size_t srclen,
     const char *inptr = src;
     size_t insize = srclen;
 
-    /* Avoid glibc-2.1 bug and Solaris 2.7-2.9 bug.  */
-# if defined _LIBICONV_VERSION \
-     || !(((__GLIBC__ == 2 && __GLIBC_MINOR__ <= 1) && !defined __UCLIBC__) \
-          || defined __sun)
     /* Set to the initial state.  */
     iconv (cd, NULL, NULL, NULL, NULL);
-# endif
 
     while (insize > 0)
       {
@@ -619,16 +603,11 @@ mem_cd_iconveh_internal (const char *src, size_t srclen,
     bool do_final_flush1 = true;
     bool do_final_flush2 = true;
 
-    /* Avoid glibc-2.1 bug and Solaris 2.7-2.9 bug.  */
-# if defined _LIBICONV_VERSION \
-     || !(((__GLIBC__ == 2 && __GLIBC_MINOR__ <= 1) && !defined __UCLIBC__) \
-          || defined __sun)
     /* Set to the initial state.  */
     if (cd1 != (iconv_t)(-1))
       iconv (cd1, NULL, NULL, NULL, NULL);
     if (cd2 != (iconv_t)(-1))
       iconv (cd2, NULL, NULL, NULL, NULL);
-# endif
 
     while (in1size > 0 || do_final_flush1 || utf8len > 0 || do_final_flush2)
       {

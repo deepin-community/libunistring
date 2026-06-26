@@ -20,6 +20,7 @@
 
 #include "unistdio.h"
 
+#include <errno.h>
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -69,5 +70,5 @@ int
 main (int argc, char *argv[])
 {
   test_vasnprintf ();
-  return 0;
+  return test_exit_status;
 }

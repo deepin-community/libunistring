@@ -60,37 +60,9 @@ include Makefile.gnulib
 # Additional source files.
 libunistring_la_SOURCES += version.c
 
-# The <stdbool.h> and <stdint.h> replacements that can be installed.
+# The <stdint.h> replacement that can be installed.
 nobase_nodist_include_HEADERS = \
-  unistring/stdbool.h \
   unistring/stdint.h
-
-# Produce an unistring/stdbool.h that is not compiler dependent.
-# GCC >= 2.95 has <stdbool.h>.
-# AIX >= 5.3 has <stdbool.h>.
-# Solaris 10 and some HP-UX 11 versions have <stdbool.h> but it does not
-# necessarily work.
-unistring/stdbool.h : $(STDBOOL_H) stdbool.mini.h
-	@MKDIR_P@ unistring
-	rm -f $@-t $@
-	{ echo '/* DO NOT EDIT! GENERATED AUTOMATICALLY! */'; \
-	  echo '#if !defined _GL_STDBOOL_H'; \
-	  if test -f /usr/include/stdbool.h; then \
-	    echo '#if (__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 95)) || defined _AIX'; \
-	  else \
-	    echo '#if (__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 95))'; \
-	  fi; \
-	  echo '#include <stdbool.h>'; \
-	  echo '#else'; \
-	  cat $(srcdir)/stdbool.mini.h; \
-	  echo '#endif'; \
-	  echo '#endif'; \
-	} > $@-t
-	mv $@-t $@
-BUILT_SOURCES    += unistring/stdbool.h
-MOSTLYCLEANFILES += unistring/stdbool.h-t
-CLEANFILES       += unistring/stdbool.h
-EXTRA_DIST       += stdbool.mini.h
 
 # Produce an unistring/stdint.h that is not compiler dependent.
 # Glibc >= 2 has <stdint.h>.
@@ -338,9 +310,9 @@ AM_CPPFLAGS += -DDEPENDS_ON_LIBICONV=1
 
 # Libtool's library version information for libunistring.
 # See the libtool documentation, section "Library interface versions".
-LTV_CURRENT=6
+LTV_CURRENT=7
 LTV_REVISION=0
-LTV_AGE=1
+LTV_AGE=2
 
 # How to build libunistring.la.
 libunistring_la_LDFLAGS += \
